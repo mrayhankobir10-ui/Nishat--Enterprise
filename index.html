@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>????? ????????????</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+    margin:0;
+    padding:12px;
+    font-family:Arial,sans-serif;
+    background:#f1f3f6;
+}
+.container{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    padding:15px;
+    border-radius:12px;
+    box-shadow:0 2px 10px #ccc;
+}
+h1{
+    text-align:center;
+    margin:5px 0 15px;
+}
+.top{
+    display:flex;
+    gap:8px;
+    margin-bottom:15px;
+}
+.top input,.top button{
+    padding:10px;
+    font-size:16px;
+}
+.top input{flex:1}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+th,td{
+    border:1px solid #ddd;
+    padding:8px;
+    text-align:center;
+}
+th{
+    background:#222;
+    color:white;
+}
+.qty{
+    width:70px;
+    padding:7px;
+    text-align:center;
+    font-size:16px;
+}
+.total{
+    margin-top:18px;
+    padding:12px;
+    background:#eee;
+    text-align:right;
+    font-size:21px;
+    font-weight:bold;
+}
+button{
+    border:0;
+    border-radius:6px;
+    cursor:pointer;
+}
+.save{
+    background:#16803c;
+    color:white;
+}
+.clear{
+    background:#c62828;
+    color:white;
+    padding:10px 15px;
+    margin-top:12px;
+}
+.history{
+    margin-top:25px;
+}
+.history select{
+    width:100%;
+    padding:10px;
+    font-size:16px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>????? ????????????</h1>
+
+<div class="top">
+    <input type="date" id="date">
+    <button class="save" onclick="saveData()">????? ???</button>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>????? / ???????</th>
+<th>????? ???</th>
+<th>?? ???</th>
+<th>??? ????</th>
+</tr>
+</thead>
+
+<tbody id="cardTable"></tbody>
+</table>
+
+<div class="total">
+???????: <span id="grandTotal">0.00</span> ????
+</div>
+
+<button class="clear" onclick="clearDay()">?? ????? ????? ?????</button>
+
+<div class="history">
+<h3>?? ???? ????? ?????</h3>
+<select id="history" onchange="loadHistory()">
+<option value="">????? ???????? ????</option>
+</select>
+</div>
+
+</div>
+
+<script>
+
+const cards = [
+    ["Sim199",199],
+    ["Kit 391",391],
+    ["Tin tin 199",199],
+    ["Nishinto 307",307],
+    ["Myplan 199",199],
+    ["20 sc",19.81],
+    ["39 mb",38],
+    ["49 v",47.73],
+    ["49 MB",47.73],
+    ["29 v",28.25],
+    ["19 v",18.81]
+];
+
+const table = document.getElementById("cardTable");
+
+cards.forEach((card,index)=>{
+
+    let row=document.createElement("tr");
+
+    row.innerHTML=`
+        <td>${card[0]}</td>
+        <td>${card[1].toFixed(2)}</td>
+        <td>
+            <input class="qty"
+                   type="number"
+                   min="0"
+                   value="0"
+                   id="qty${index}"
+                   oninput="calculate()">
+        </td>
+        <td>
+            <span id="total${index}">0.00</span>
+        </td>
+    `;
+
+    table.appendChild(row);
+});
+
+
+/* ????? ????? */
+function today(){
+
+    let d=new Date();
+
+    let y=d.getFullYear();
+    let m=String(d.getMonth()+1).padStart(2,"0");
+    let day=String(d.getDate()).padStart(2,"0");
+
+    return `${y}-${m}-${day}`;
+}
+
+document.getElementById("date").value=today();
+
+
+/* ????? */
+function calculate(){
+
+    let grand=0;
+
+    cards.forEach((card,index)=>{
+
+        let qty=Number(
+            document.getElementById("qty"+index).value
+        ) || 0;
+
+        let total=qty*card[1];
+
+        document.getElementById("total"+index)
+        .innerText=total.toFixed(2);
+
+        grand+=total;
+    });
+
+    document.getElementById("grandTotal")
+    .innerText=grand.toFixed(2);
+}
+
+
+/* ????? ??? */
+function saveData(){
+
+    let date=document.getElementById("date").value;
+
+    if(!date){
+        alert("????? ???????? ????");
+        return;
+    }
+
+    let data=[];
+
+    cards.forEach((card,index)=>{
+
+        data.push(
+            Number(
+                document.getElementById("qty"+index).value
+            ) || 0
+        );
+
+    });
+
+    localStorage.setItem(
+        "nishat_"+date,
+        JSON.stringify(data)
+    );
+
+    updateHistory();
+
+    alert("????? ??? ?????? ?");
+}
+
+
+/* ????? ??? */
+function loadDate(date){
+
+    document.getElementById("date").value=date;
+
+    let saved=localStorage.getItem("nishat_"+date);
+
+    cards.forEach((card,index)=>{
+
+        let qty=0;
+
+        if(saved){
+            let data=JSON.parse(saved);
+            qty=data[index] || 0;
+        }
+
+        document.getElementById("qty"+index)
+        .value=qty;
+    });
+
+    calculate();
+}
+
+
+/* ????? ???????? ???? */
+document.getElementById("date")
+.addEventListener("change",function(){
+
+    loadDate(this.value);
+
+});
+
+
+/* ???? ??????? ?????? */
+function updateHistory(){
+
+    let select=document.getElementById("history");
+
+    select.innerHTML=
+        '<option value="">????? ???????? ????</option>';
+
+    let dates=[];
+
+    for(let i=0;i<localStorage.length;i++){
+
+        let key=localStorage.key(i);
+
+        if(key.startsWith("nishat_")){
+
+            dates.push(key.replace("nishat_",""));
+        }
+    }
+
+    dates.sort().reverse();
+
+    dates.forEach(date=>{
+
+        let option=document.createElement("option");
+
+        option.value=date;
+        option.innerText=date;
+
+        select.appendChild(option);
+    });
+}
+
+
+/* ????? ????? ????? */
+function loadHistory(){
+
+    let date=document.getElementById("history").value;
+
+    if(date){
+        loadDate(date);
+    }
+}
+
+
+/* ??????? ????? ????? ????? */
+function clearDay(){
+
+    let date=document.getElementById("date").value;
+
+    if(!confirm(
+        date+" ??????? ????? ???? ???????"
+    )){
+        return;
+    }
+
+    localStorage.removeItem("nishat_"+date);
+
+    cards.forEach((card,index)=>{
+
+        document.getElementById("qty"+index)
+        .value=0;
+
+    });
+
+    calculate();
+    updateHistory();
+}
+
+
+/* ?????? ???? ????? ?????? */
+updateHistory();
+
+</script>
+
+</body>
+</html>
