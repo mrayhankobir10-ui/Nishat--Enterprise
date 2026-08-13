@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>????? ????????????</title>
+<title>নিশাত এন্টারপ্রইজ</title>
 
 <style>
 *{box-sizing:border-box}
@@ -93,7 +93,7 @@ button{
 
 <div class="container">
 
-<h1>????? ????????????</h1>
+<h1>নিশাত এন্টারপ্রাইজ</h1>
 
 <div class="top">
     <input type="date" id="date">
@@ -103,10 +103,10 @@ button{
 <table>
 <thead>
 <tr>
-<th>????? / ???????</th>
-<th>????? ???</th>
-<th>?? ???</th>
-<th>??? ????</th>
+<th>কার্ড / প্যাকেজ</th>
+<th>প্রতি পিস</th>
+<th>কত পিস</th>
+<th>মোট টাকা</th>
 </tr>
 </thead>
 
@@ -114,15 +114,15 @@ button{
 </table>
 
 <div class="total">
-???????: <span id="grandTotal">0.00</span> ????
+সর্বমোট: <span id="grandTotal">0.00</span> টাকা
 </div>
 
-<button class="clear" onclick="clearDay()">?? ????? ????? ?????</button>
+<button class="clear" onclick="clearDay()">এই দিনের হিসাব মুছুন</button>
 
 <div class="history">
-<h3>?? ???? ????? ?????</h3>
+<h3>আগের দিনের হিসাব</h3>
 <select id="history" onchange="loadHistory()">
-<option value="">????? ???????? ????</option>
+<option value="">তারিখ নির্বাচন করুন</option>
 </select>
 </div>
 
@@ -170,7 +170,7 @@ cards.forEach((card,index)=>{
 });
 
 
-/* ????? ????? */
+/* আজকের তারিখ */
 function today(){
 
     let d=new Date();
@@ -185,7 +185,7 @@ function today(){
 document.getElementById("date").value=today();
 
 
-/* ????? */
+/* হিসাব */
 function calculate(){
 
     let grand=0;
@@ -209,13 +209,13 @@ function calculate(){
 }
 
 
-/* ????? ??? */
+/* হিসাব সেভ */
 function saveData(){
 
     let date=document.getElementById("date").value;
 
     if(!date){
-        alert("????? ???????? ????");
+        alert("তারিখ নির্বাচন করুন");
         return;
     }
 
@@ -238,11 +238,11 @@ function saveData(){
 
     updateHistory();
 
-    alert("????? ??? ?????? ?");
+    alert("হিসাব সেভ হয়েছে");
 }
 
 
-/* ????? ??? */
+/* হিসাব লোড */
 function loadDate(date){
 
     document.getElementById("date").value=date;
