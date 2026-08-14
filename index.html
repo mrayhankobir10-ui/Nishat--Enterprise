@@ -328,10 +328,7 @@ th{
 
 </div>
 
-
-<!-- =====================================================
-ADMIN
-===================================================== -->
+<!-- ADMIN -->
 
 <div id="adminPage" class="section active">
 
@@ -353,7 +350,6 @@ ADMIN
 
 </div>
 
-
 <div id="adminPanel" class="hidden">
 
 <div class="card">
@@ -365,7 +361,6 @@ ADMIN
 </div>
 
 </div>
-
 
 <!-- PASSWORD REQUEST -->
 
@@ -380,7 +375,6 @@ Pending Request: 0
 <div id="resetRequests"></div>
 
 </div>
-
 
 <!-- STOCK EDIT -->
 
@@ -430,7 +424,6 @@ Cancel
 
 </div>
 
-
 <!-- ADD STOCK -->
 
 <div class="card">
@@ -473,7 +466,6 @@ Cancel
 
 </div>
 
-
 <!-- ADMIN DATE -->
 
 <div class="card">
@@ -486,7 +478,6 @@ Cancel
 
 </div>
 
-
 <!-- MONEY -->
 
 <div class="card">
@@ -496,8 +487,8 @@ Cancel
 <div class="stats">
 
 <div class="stat">
-<small>সনজিদ</small>
-<b id="moneySonjid">৳0</b>
+<small>সনজিত রায়</small>
+<b id="moneySanjit">৳0</b>
 </div>
 
 <div class="stat">
@@ -530,7 +521,6 @@ Cancel
 
 </div>
 
-
 <!-- DAILY SALES -->
 
 <div class="card">
@@ -545,7 +535,7 @@ Cancel
 
 <tr>
 <th>তারিখ</th>
-<th>সনজিদ</th>
+<th>সনজিত রায়</th>
 <th>মুজাহিদ</th>
 <th>ইলিয়াস</th>
 <th>সেলিম</th>
@@ -561,7 +551,6 @@ Cancel
 </div>
 
 </div>
-
 
 <!-- SUMMARY -->
 
@@ -602,7 +591,6 @@ Sales Amount:
 
 </div>
 
-
 <!-- SR STOCK -->
 
 <div class="card">
@@ -612,7 +600,6 @@ Sales Amount:
 <div id="adminSR"></div>
 
 </div>
-
 
 <!-- PRODUCT REPORT -->
 
@@ -647,7 +634,6 @@ Sales Amount:
 </div>
 
 </div>
-
 
 <!-- STOCK HISTORY -->
 
@@ -684,10 +670,7 @@ Sales Amount:
 
 </div>
 
-
-<!-- =====================================================
-SR PAGE
-===================================================== -->
+<!-- SR PAGE -->
 
 <div id="srPage" class="section">
 
@@ -720,7 +703,6 @@ Login
 <p id="srMsg" class="msg"></p>
 
 </div>
-
 
 <!-- RESET -->
 
@@ -762,7 +744,6 @@ Back
 
 </div>
 
-
 <!-- SR PANEL -->
 
 <div id="srPanel" class="hidden">
@@ -781,7 +762,6 @@ Logout
 
 </div>
 
-
 <div class="card">
 
 <div class="successBox">
@@ -798,7 +778,6 @@ Logout
 </div>
 
 </div>
-
 
 <!-- SELL EDIT -->
 
@@ -848,7 +827,6 @@ Cancel
 
 </div>
 
-
 <!-- DATE -->
 
 <div class="card">
@@ -860,7 +838,6 @@ Cancel
 <div id="srDateText" class="selectedDate"></div>
 
 </div>
-
 
 <!-- STOCK -->
 
@@ -893,7 +870,6 @@ Cancel
 </div>
 
 </div>
-
 
 <!-- SELL -->
 
@@ -937,7 +913,6 @@ Cancel
 
 </div>
 
-
 <!-- RETURN -->
 
 <div class="card returnBox">
@@ -980,7 +955,6 @@ Return করলে সেই পরিমাণ Stock আবার Current Stoc
 
 </div>
 
-
 <!-- SELL HISTORY -->
 
 <div class="card">
@@ -1012,7 +986,6 @@ Return করলে সেই পরিমাণ Stock আবার Current Stoc
 </div>
 
 </div>
-
 
 <!-- CURRENT -->
 
@@ -1048,19 +1021,15 @@ Return করলে সেই পরিমাণ Stock আবার Current Stoc
 
 </div>
 
-
 <div class="footer">
 © নিশাত এন্টারপ্রাইজ
 </div>
 
 </div>
 
-
 <script>
 
-/* =====================================================
-PRODUCT
-===================================================== */
+/* PRODUCT */
 
 const products={
 "Sim":199,
@@ -1077,21 +1046,17 @@ const products={
 };
 
 
-/* =====================================================
-SR
-===================================================== */
+/* SR */
 
 const srList=[
-{name:"সনজিদ",id:"SONJID"},
+{name:"সনজিত রায়",id:"SANJIT"},
 {name:"মুজাহিদ",id:"MUJAHID"},
 {name:"ইলিয়াস",id:"ELIAS"},
 {name:"সেলিম",id:"SELIM"}
 ];
 
 
-/* =====================================================
-ACCOUNTS
-===================================================== */
+/* ACCOUNTS */
 
 let accounts=
 JSON.parse(
@@ -1108,8 +1073,8 @@ password:"250656",
 role:"ADMIN"
 },
 
-RAYHAN:{
-name:"সনজিদ",
+SANJIT:{
+name:"সনজিত রায়",
 password:"123455",
 role:"SR"
 },
@@ -1137,9 +1102,7 @@ role:"SR"
 }
 
 
-/* =====================================================
-DATABASE
-===================================================== */
+/* DATABASE */
 
 let stocks=
 JSON.parse(
@@ -1167,9 +1130,7 @@ let editingStockId=null;
 let editingSellProduct=null;
 
 
-/* =====================================================
-DATE
-===================================================== */
+/* DATE */
 
 function getToday(){
 
@@ -1185,9 +1146,7 @@ document.getElementById("srDate").value=getToday();
 document.getElementById("sellDate").value=getToday();
 
 
-/* =====================================================
-SAVE
-===================================================== */
+/* SAVE */
 
 function save(){
 
@@ -1219,9 +1178,7 @@ JSON.stringify(resetRequests)
 }
 
 
-/* =====================================================
-OPTIONS
-===================================================== */
+/* OPTIONS */
 
 function loadOptions(){
 
@@ -1265,9 +1222,7 @@ document.getElementById("editStockProduct").innerHTML=pHTML;
 loadOptions();
 
 
-/* =====================================================
-PAGE
-===================================================== */
+/* PAGE */
 
 function showPage(page){
 
@@ -1282,9 +1237,7 @@ document
 }
 
 
-/* =====================================================
-ADMIN LOGIN
-===================================================== */
+/* ADMIN LOGIN */
 
 function adminLogin(){
 
@@ -1340,9 +1293,7 @@ document.getElementById("adminPassword").value="";
 }
 
 
-/* =====================================================
-ADD STOCK
-===================================================== */
+/* ADD STOCK */
 
 function addStock(){
 
@@ -1386,9 +1337,7 @@ renderAdmin();
 }
 
 
-/* =====================================================
-STOCK EDIT
-===================================================== */
+/* STOCK EDIT */
 
 function editStock(id){
 
@@ -1415,9 +1364,7 @@ behavior:"smooth"
 }
 
 
-/* =====================================================
-UPDATE STOCK
-===================================================== */
+/* UPDATE STOCK */
 
 function updateStock(){
 
@@ -1496,9 +1443,7 @@ document
 }
 
 
-/* =====================================================
-DATE HELPERS
-===================================================== */
+/* DATE HELPERS */
 
 function previousDate(date){
 
@@ -1522,9 +1467,7 @@ return p[2]+"-"+p[1]+"-"+p[0];
 }
 
 
-/* =====================================================
-STOCK
-===================================================== */
+/* STOCK */
 
 function totalReceived(sr,product,date){
 
@@ -1683,9 +1626,7 @@ return Math.max(0,sold-ret);
 }
 
 
-/* =====================================================
-SR LOGIN
-===================================================== */
+/* SR LOGIN */
 
 function srLogin(){
 
@@ -1745,9 +1686,7 @@ document.getElementById("srPassword").value="";
 }
 
 
-/* =====================================================
-SELL
-===================================================== */
+/* SELL */
 
 function sell(){
 
@@ -1823,9 +1762,7 @@ renderSR();
 }
 
 
-/* =====================================================
-SELL EDIT
-===================================================== */
+/* SELL EDIT */
 
 function editSell(product,date){
 
@@ -1893,9 +1830,7 @@ behavior:"smooth"
 }
 
 
-/* =====================================================
-UPDATE SELL
-===================================================== */
+/* UPDATE SELL */
 
 function updateSell(){
 
@@ -1971,14 +1906,6 @@ return;
 
 }
 
-
-/*
-শুধু আজকের ঐ Product-এর Sell
-consolidate করা হচ্ছে।
-পুরোনো Return record থাকলে সেটি
-নষ্ট করা হচ্ছে না।
-*/
-
 sales=sales.filter(x=>
 !(
 x.sr===currentSR &&
@@ -2033,9 +1960,7 @@ document
 }
 
 
-/* =====================================================
-RETURN
-===================================================== */
+/* RETURN */
 
 function returnSell(){
 
@@ -2111,9 +2036,7 @@ renderSR();
 }
 
 
-/* =====================================================
-RETURN AVAILABLE
-===================================================== */
+/* RETURN AVAILABLE */
 
 function updateReturnAvailable(){
 
@@ -2135,9 +2058,7 @@ net+" পিস";
 }
 
 
-/* =====================================================
-SELL AVAILABLE
-===================================================== */
+/* SELL AVAILABLE */
 
 function updateAvailable(){
 
@@ -2159,9 +2080,7 @@ available+" পিস";
 }
 
 
-/* =====================================================
-SR RENDER
-===================================================== */
+/* SR RENDER */
 
 function renderSR(){
 
@@ -2203,13 +2122,6 @@ date
 
 let returnQty=
 returnedOnDate(
-currentSR,
-product,
-date
-);
-
-let net=
-netSoldOnDate(
 currentSR,
 product,
 date
@@ -2427,9 +2339,7 @@ updateReturnAvailable();
 }
 
 
-/* =====================================================
-MONEY
-===================================================== */
+/* MONEY */
 
 function dailyMoney(sr,date){
 
@@ -2468,9 +2378,7 @@ return srList.reduce(
 }
 
 
-/* =====================================================
-DAILY SALES
-===================================================== */
+/* DAILY SALES */
 
 function getSaleDates(){
 
@@ -2495,13 +2403,13 @@ let html="";
 
 dates.forEach(date=>{
 
-let rayhan=dailyMoney("RAYHAN",date);
+let sanjit=dailyMoney("SANJIT",date);
 let mujahid=dailyMoney("MUJAHID",date);
 let elias=dailyMoney("ELIAS",date);
 let selim=dailyMoney("SELIM",date);
 
 let total=
-rayhan+mujahid+elias+selim;
+sanjit+mujahid+elias+selim;
 
 html+=`
 
@@ -2509,7 +2417,7 @@ html+=`
 
 <td><b>${formatDate(date)}</b></td>
 
-<td class="money">৳${rayhan.toFixed(2)}</td>
+<td class="money">৳${sanjit.toFixed(2)}</td>
 
 <td class="money">৳${mujahid.toFixed(2)}</td>
 
@@ -2540,9 +2448,7 @@ html ||
 }
 
 
-/* =====================================================
-ADMIN RENDER
-===================================================== */
+/* ADMIN RENDER */
 
 function renderAdmin(){
 
@@ -2563,16 +2469,16 @@ document.getElementById("adminDateText").textContent=
 
 /* MONEY */
 
-let rayhan=dailyMoney("RAYHAN",date);
+let sanjit=dailyMoney("SANJIT",date);
 let mujahid=dailyMoney("MUJAHID",date);
 let elias=dailyMoney("ELIAS",date);
 let selim=dailyMoney("SELIM",date);
 
 let grand=
-rayhan+mujahid+elias+selim;
+sanjit+mujahid+elias+selim;
 
-document.getElementById("moneyRayhan").textContent=
-"৳"+rayhan.toFixed(2);
+document.getElementById("moneySanjit").textContent=
+"৳"+sanjit.toFixed(2);
 
 document.getElementById("moneyMujahid").textContent=
 "৳"+mujahid.toFixed(2);
@@ -2901,7 +2807,7 @@ let current=
 currentStock(
 entry.sr,
 entry.product,
-today
+getToday()
 );
 
 history+=`
@@ -2949,20 +2855,12 @@ history ||
 }
 
 
-/* =====================================================
-FORGOT PASSWORD
-===================================================== */
+/* FORGOT PASSWORD */
 
 function forgotPassword(){
 
 let sr=
 document.getElementById("srID").value;
-
-
-/*
-Approved Request আছে কিনা দেখবে।
-Admin Panel-এ এটি দেখাবে না।
-*/
 
 let approved=
 resetRequests.find(r=>
@@ -3017,10 +2915,6 @@ return;
 }
 
 
-/*
-নতুন Request
-*/
-
 resetRequests.push({
 
 id:Date.now()+Math.random(),
@@ -3045,11 +2939,7 @@ true
 }
 
 
-/* =====================================================
-RESET REQUEST RENDER
-শুধু PENDING দেখাবে
-APPROVED হলে এখান থেকে চলে যাবে
-===================================================== */
+/* RESET REQUEST RENDER */
 
 function renderResetRequests(){
 
@@ -3123,9 +3013,7 @@ document.getElementById("resetRequests").innerHTML=html;
 }
 
 
-/* =====================================================
-APPROVE RESET
-===================================================== */
+/* APPROVE RESET */
 
 function approveReset(id){
 
@@ -3133,15 +3021,6 @@ let request=
 resetRequests.find(x=>x.id===id);
 
 if(!request)return;
-
-
-/*
-APPROVED রাখা হবে যাতে SR
-নতুন Password সেট করতে পারে।
-
-কিন্তু Admin Panel-এর Pending
-তালিকা থেকে সঙ্গে সঙ্গে চলে যাবে।
-*/
 
 request.status="APPROVED";
 request.approvedAt=new Date().toISOString();
@@ -3153,9 +3032,7 @@ renderResetRequests();
 }
 
 
-/* =====================================================
-REJECT
-===================================================== */
+/* REJECT */
 
 function rejectReset(id){
 
@@ -3163,12 +3040,6 @@ let request=
 resetRequests.find(x=>x.id===id);
 
 if(!request)return;
-
-
-/*
-Rejected Request-ও Pending তালিকা
-থেকে সরিয়ে দেওয়া হবে।
-*/
 
 request.status="REJECTED";
 request.rejectedAt=new Date().toISOString();
@@ -3180,9 +3051,7 @@ renderResetRequests();
 }
 
 
-/* =====================================================
-FINISH RESET
-===================================================== */
+/* FINISH RESET */
 
 function finishReset(){
 
@@ -3222,12 +3091,6 @@ accounts[
 approvedReset.sr
 ].password=p;
 
-
-/*
-Password পরিবর্তন হয়ে গেলে
-approval request সম্পূর্ণ শেষ।
-*/
-
 approvedReset.status="COMPLETED";
 approvedReset.completedAt=
 new Date().toISOString();
@@ -3266,9 +3129,7 @@ approvedReset=null;
 }
 
 
-/* =====================================================
-EVENTS
-===================================================== */
+/* EVENTS */
 
 document
 .getElementById("adminDate")
@@ -3311,9 +3172,7 @@ document.getElementById("editSellPrice").value=
 );
 
 
-/* =====================================================
-MESSAGE
-===================================================== */
+/* MESSAGE */
 
 function showMsg(id,text,success){
 
@@ -3329,84 +3188,7 @@ success
 }
 
 
-3268
-3269
-3270
-3271
-3272
-3273
-3274
-3275
-3276
-3277
-3278
-3279
-3280
-3281
-3282
-3283
-3284
-3285
-3286
-3287
-3288
-3289
-3290
-3291
-3292
-3293
-3294
-3295
-3296
-3297
-3298
-3299
-3300
-3301
-3302
-3303
-3304
-3305
-3306
-3307
-3308
-3309
-3310
-3311
-3312
-3313
-3314
-3315
-3316
-3317
-3318
-3319
-3320
-3321
-3322
-3323
-3324
-3325
-3326
-3327
-3328
-3329
-3330
-3331
-3332
-3333
-3334
-3335
-3336
-3337
-3338
-3339
-3340
-3341
-3342
-/* =====================================================
-START
-===================================================== */
+/* START */
 
 save();
 
