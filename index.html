@@ -2,351 +2,3338 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>নিশাত এন্টারপ্রইজ</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>নিশাত এন্টারপ্রাইজ</title>
 
 <style>
 *{box-sizing:border-box}
+
 body{
     margin:0;
-    padding:12px;
-    font-family:Arial,sans-serif;
-    background:#f1f3f6;
+    background:#eef2f5;
+    color:#172033;
+    font-family:Arial,"Noto Sans Bengali",sans-serif;
+    font-size:13px;
 }
-.container{
-    max-width:850px;
-    margin:auto;
-    background:white;
-    padding:15px;
-    border-radius:12px;
-    box-shadow:0 2px 10px #ccc;
-}
-h1{
+
+.header{
+    background:linear-gradient(135deg,#075e54,#128c7e);
+    color:#fff;
     text-align:center;
-    margin:5px 0 15px;
+    padding:14px 6px;
 }
+
+.header h1{
+    margin:0;
+    font-size:22px;
+}
+
+.header p{
+    margin:4px 0 0;
+    font-size:11px;
+}
+
+.container{
+    max-width:1150px;
+    margin:auto;
+    padding:7px;
+}
+
 .top{
-    display:flex;
-    gap:8px;
-    margin-bottom:15px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px;
+    margin-bottom:7px;
 }
-.top input,.top button{
-    padding:10px;
+
+button{
+    border:0;
+    border-radius:7px;
+    padding:9px 11px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.adminBtn{background:#374151;color:#fff}
+.srBtn{background:#2563eb;color:#fff}
+.green{background:#16a34a;color:#fff}
+.red{background:#dc2626;color:#fff}
+.orange{background:#ea580c;color:#fff}
+.gray{background:#64748b;color:#fff}
+.blue{background:#2563eb;color:#fff}
+
+.card{
+    background:#fff;
+    border-radius:9px;
+    padding:9px;
+    margin-bottom:8px;
+    box-shadow:0 2px 7px #0001;
+}
+
+h2{
+    margin:0 0 8px;
+    color:#075e54;
     font-size:16px;
 }
-.top input{flex:1}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:6px;
+}
+
+@media(max-width:650px){
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+label{
+    display:block;
+    font-size:11px;
+    font-weight:bold;
+    margin-bottom:3px;
+}
+
+input,select{
+    width:100%;
+    padding:8px;
+    border:1px solid #cbd5e1;
+    border-radius:6px;
+    font-size:13px;
+    background:#fff;
+}
+
+.actions{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+    margin-top:7px;
+}
+
+.section{display:none}
+.section.active{display:block}
+
+.hidden{
+    display:none!important;
+}
+
+.login{
+    max-width:430px;
+    margin:15px auto;
+}
+
+.msg{
+    font-size:12px;
+    font-weight:bold;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:5px;
+}
+
+@media(max-width:600px){
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+.stat{
+    background:#f8fafc;
+    border-left:4px solid #128c7e;
+    border-radius:6px;
+    padding:8px;
+}
+
+.stat small{
+    display:block;
+    color:#64748b;
+    font-size:10px;
+}
+
+.stat b{
+    display:block;
+    font-size:17px;
+    margin-top:2px;
+}
+
+.tableWrap{
+    width:100%;
+    overflow-x:auto;
+}
 
 table{
     width:100%;
     border-collapse:collapse;
 }
+
 th,td{
-    border:1px solid #ddd;
-    padding:8px;
+    padding:6px 4px;
+    border-bottom:1px solid #e5e7eb;
     text-align:center;
+    white-space:nowrap;
+    font-size:11px;
 }
+
 th{
-    background:#222;
-    color:white;
+    background:#075e54;
+    color:#fff;
 }
-.qty{
-    width:70px;
-    padding:7px;
-    text-align:center;
-    font-size:16px;
-}
-.total{
-    margin-top:18px;
-    padding:12px;
-    background:#eee;
-    text-align:right;
-    font-size:21px;
+
+.current{
+    color:#075e54;
     font-weight:bold;
 }
-button{
-    border:0;
+
+.sell{
+    color:#16a34a;
+    font-weight:bold;
+}
+
+.return{
+    color:#ea580c;
+    font-weight:bold;
+}
+
+.zero{
+    color:#dc2626;
+    font-weight:bold;
+}
+
+.money{
+    color:#075e54;
+    font-weight:bold;
+}
+
+.selectedDate{
+    background:#e8f7f3;
+    color:#075e54;
+    padding:7px;
     border-radius:6px;
-    cursor:pointer;
+    font-weight:bold;
+    margin-top:7px;
 }
-.save{
-    background:#16803c;
-    color:white;
+
+.small{
+    font-size:10px;
+    color:#64748b;
 }
-.clear{
-    background:#c62828;
-    color:white;
-    padding:10px 15px;
-    margin-top:12px;
-}
-.history{
-    margin-top:25px;
-}
-.history select{
-    width:100%;
+
+.request{
+    border:2px solid #f59e0b;
+    background:#fffbeb;
     padding:10px;
-    font-size:16px;
+    border-radius:7px;
+    margin-bottom:7px;
+}
+
+.badge{
+    display:inline-block;
+    padding:4px 7px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:bold;
+    background:#f59e0b;
+    color:#fff;
+}
+
+.successBox{
+    background:#ecfdf5;
+    border:1px solid #16a34a;
+    color:#166534;
+    padding:8px;
+    border-radius:7px;
+    margin-bottom:8px;
+}
+
+.returnBox{
+    background:#fff7ed;
+    border:1px solid #ea580c;
+    color:#9a3412;
+    padding:8px;
+    border-radius:7px;
+    margin-bottom:8px;
+}
+
+.box{
+    border:1px solid #dbe3ea;
+    border-radius:8px;
+    overflow:hidden;
+    margin-bottom:8px;
+}
+
+.boxTitle{
+    background:#075e54;
+    color:#fff;
+    padding:7px 9px;
+    font-weight:bold;
+}
+
+.srTotal{
+    background:#e8f7f3!important;
+    font-weight:bold!important;
+    color:#075e54!important;
+}
+
+.grandTotal{
+    background:#075e54!important;
+    color:#fff!important;
+    font-size:14px!important;
+    font-weight:bold!important;
+}
+
+.editBox{
+    background:#fff7ed;
+    border:1px solid #fb923c;
+    padding:8px;
+    border-radius:7px;
+    margin-bottom:8px;
+}
+
+.editTitle{
+    color:#c2410c;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.footer{
+    text-align:center;
+    color:#64748b;
+    font-size:10px;
+    padding:12px;
 }
 </style>
 </head>
 
 <body>
 
+<div class="header">
+    <h1>নিশাত এন্টারপ্রাইজ</h1>
+    <p>Stock • Sell • Return • Current Stock • Daily Report</p>
+</div>
+
 <div class="container">
 
-<h1>নিশাত এন্টারপ্রাইজ</h1>
-
 <div class="top">
-    <input type="date" id="date">
-    <button class="save" onclick="saveData()">হিসাব সেভ</button>
+
+<button class="adminBtn" onclick="showPage('adminPage')">
+👨‍💼 ADMIN PANEL
+</button>
+
+<button class="srBtn" onclick="showPage('srPage')">
+👤 SR PANEL
+</button>
+
 </div>
+
+
+<!-- =====================================================
+ADMIN
+===================================================== -->
+
+<div id="adminPage" class="section active">
+
+<div id="adminLoginBox" class="card login">
+
+<h2>🔐 Admin Login</h2>
+
+<label>Admin ID</label>
+<input id="adminID" value="ADMIN">
+
+<label style="margin-top:6px">Password</label>
+<input type="password" id="adminPassword">
+
+<div class="actions">
+<button class="adminBtn" onclick="adminLogin()">Login</button>
+</div>
+
+<p id="adminMsg" class="msg"></p>
+
+</div>
+
+
+<div id="adminPanel" class="hidden">
+
+<div class="card">
+
+<b>👨‍💼 Admin Panel — নিশাত এন্টারপ্রাইজ</b>
+
+<div class="actions">
+<button class="red" onclick="adminLogout()">Logout</button>
+</div>
+
+</div>
+
+
+<!-- PASSWORD REQUEST -->
+
+<div class="card">
+
+<h2>🔐 SR Password Reset Request</h2>
+
+<div id="resetRequestCount">
+Pending Request: 0
+</div>
+
+<div id="resetRequests"></div>
+
+</div>
+
+
+<!-- STOCK EDIT -->
+
+<div id="stockEditBox" class="card editBox hidden">
+
+<div class="editTitle">
+✏️ Stock Edit / Update
+</div>
+
+<div class="grid">
+
+<div>
+<label>তারিখ</label>
+<input type="date" id="editStockDate">
+</div>
+
+<div>
+<label>SR</label>
+<select id="editStockSR"></select>
+</div>
+
+<div>
+<label>Product</label>
+<select id="editStockProduct"></select>
+</div>
+
+<div>
+<label>Quantity</label>
+<input type="number" id="editStockQty" min="1">
+</div>
+
+</div>
+
+<div class="actions">
+
+<button class="green" onclick="updateStock()">
+💾 Update Stock
+</button>
+
+<button class="gray" onclick="cancelStockEdit()">
+Cancel
+</button>
+
+</div>
+
+<p id="stockEditMsg" class="msg"></p>
+
+</div>
+
+
+<!-- ADD STOCK -->
+
+<div class="card">
+
+<h2>📦 SR-কে Stock দিন</h2>
+
+<div class="grid">
+
+<div>
+<label>তারিখ</label>
+<input type="date" id="addDate">
+</div>
+
+<div>
+<label>SR</label>
+<select id="addSR"></select>
+</div>
+
+<div>
+<label>Product</label>
+<select id="addProduct"></select>
+</div>
+
+<div>
+<label>Quantity</label>
+<input type="number" id="addQty" min="1">
+</div>
+
+</div>
+
+<div class="actions">
+
+<button class="green" onclick="addStock()">
+➕ Stock Add
+</button>
+
+</div>
+
+<p id="addMsg" class="msg"></p>
+
+</div>
+
+
+<!-- ADMIN DATE -->
+
+<div class="card">
+
+<h2>📅 Admin Date Search</h2>
+
+<input type="date" id="adminDate">
+
+<div id="adminDateText" class="selectedDate"></div>
+
+</div>
+
+
+<!-- MONEY -->
+
+<div class="card">
+
+<h2>💰 Daily Sales — SR Wise</h2>
+
+<div class="stats">
+
+<div class="stat">
+<small>রায়হান</small>
+<b id="moneyRayhan">৳0</b>
+</div>
+
+<div class="stat">
+<small>মুজাহিদ</small>
+<b id="moneyMujahid">৳0</b>
+</div>
+
+<div class="stat">
+<small>ইলিয়াস</small>
+<b id="moneyElias">৳0</b>
+</div>
+
+<div class="stat">
+<small>সেলিম</small>
+<b id="moneySelim">৳0</b>
+</div>
+
+</div>
+
+<br>
+
+<div class="successBox">
+
+📌 নির্বাচিত তারিখের সব SR-এর
+<b>মোট Net Sell Amount</b>
+
+<h2 id="grandMoney">৳0</h2>
+
+</div>
+
+</div>
+
+
+<!-- DAILY SALES -->
+
+<div class="card">
+
+<h2>📊 প্রতিদিনের Sell হিসাব</h2>
+
+<div class="tableWrap">
 
 <table>
+
 <thead>
+
 <tr>
-<th>কার্ড / প্যাকেজ</th>
-<th>প্রতি পিস</th>
-<th>কত পিস</th>
-<th>মোট টাকা</th>
+<th>তারিখ</th>
+<th>রায়হান</th>
+<th>মুজাহিদ</th>
+<th>ইলিয়াস</th>
+<th>সেলিম</th>
+<th>Grand Total</th>
 </tr>
+
 </thead>
 
-<tbody id="cardTable"></tbody>
+<tbody id="dailySalesTable"></tbody>
+
 </table>
 
-<div class="total">
-সর্বমোট: <span id="grandTotal">0.00</span> টাকা
-</div>
-
-<button class="clear" onclick="clearDay()">এই দিনের হিসাব মুছুন</button>
-
-<div class="history">
-<h3>আগের দিনের হিসাব</h3>
-<select id="history" onchange="loadHistory()">
-<option value="">তারিখ নির্বাচন করুন</option>
-</select>
 </div>
 
 </div>
+
+
+<!-- SUMMARY -->
+
+<div class="card">
+
+<h2>📊 নির্বাচিত তারিখের Summary</h2>
+
+<div class="stats">
+
+<div class="stat">
+<small>Total Receive</small>
+<b id="aReceive">0</b>
+</div>
+
+<div class="stat">
+<small>Total Sell</small>
+<b id="aSell">0</b>
+</div>
+
+<div class="stat">
+<small>Total Return</small>
+<b id="aReturn">0</b>
+</div>
+
+<div class="stat">
+<small>Current Stock</small>
+<b id="aCurrent">0</b>
+</div>
+
+</div>
+
+<br>
+
+<div class="successBox">
+Sales Amount:
+<b id="aAmount">৳0</b>
+</div>
+
+</div>
+
+
+<!-- SR STOCK -->
+
+<div class="card">
+
+<h2>👥 প্রত্যেক SR-এর Stock</h2>
+
+<div id="adminSR"></div>
+
+</div>
+
+
+<!-- PRODUCT REPORT -->
+
+<div class="card">
+
+<h2>📋 Product Wise Report</h2>
+
+<div class="tableWrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>SR</th>
+<th>Product</th>
+<th>Price</th>
+<th>Receive</th>
+<th>Previous</th>
+<th>Sell</th>
+<th>Return</th>
+<th>Current</th>
+<th>Amount</th>
+</tr>
+
+</thead>
+
+<tbody id="adminProducts"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- STOCK HISTORY -->
+
+<div class="card">
+
+<h2>🧾 Stock Receive History</h2>
+
+<div class="tableWrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Date</th>
+<th>SR</th>
+<th>Product</th>
+<th>Receive</th>
+<th>Current</th>
+<th>Edit</th>
+</tr>
+
+</thead>
+
+<tbody id="stockHistory"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+SR PAGE
+===================================================== -->
+
+<div id="srPage" class="section">
+
+<div id="srLoginBox" class="card login">
+
+<h2>👤 SR Login</h2>
+
+<label>SR ID</label>
+
+<select id="srID"></select>
+
+<label style="margin-top:6px">
+Password
+</label>
+
+<input type="password" id="srPassword">
+
+<div class="actions">
+
+<button class="srBtn" onclick="srLogin()">
+Login
+</button>
+
+<button class="orange" onclick="forgotPassword()">
+🔐 Forgot Password
+</button>
+
+</div>
+
+<p id="srMsg" class="msg"></p>
+
+</div>
+
+
+<!-- RESET -->
+
+<div id="resetBox" class="card login hidden">
+
+<h2>🔐 Password Reset</h2>
+
+<div id="resetInfo"></div>
+
+<label>SR ID</label>
+
+<input id="resetID" readonly>
+
+<label style="margin-top:6px">
+New Password
+</label>
+
+<input type="password" id="newPassword">
+
+<label style="margin-top:6px">
+Confirm Password
+</label>
+
+<input type="password" id="confirmPassword">
+
+<div class="actions">
+
+<button class="green" onclick="finishReset()">
+Save Password
+</button>
+
+<button class="gray" onclick="closeReset()">
+Back
+</button>
+
+</div>
+
+<p id="resetMsg" class="msg"></p>
+
+</div>
+
+
+<!-- SR PANEL -->
+
+<div id="srPanel" class="hidden">
+
+<div class="card">
+
+<b>👤 <span id="loggedSR"></span></b>
+
+<div class="actions">
+
+<button class="red" onclick="srLogout()">
+Logout
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="successBox">
+
+📌 <b>SR নিয়ম</b><br>
+১. আজকের তারিখে Sell করা যাবে।<br>
+২. আজকের Sell ভুল হলে Edit/Update করা যাবে।<br>
+৩. আজকের Sell Return করা যাবে।<br>
+৪. Return করার পর আবার নতুন করে Sell করা যাবে।<br>
+৫. পরের দিনের Sell Edit/Return করা যাবে না।<br>
+৬. আগের Stock পরের দিনে Carry Forward হবে।<br>
+৭. Date Search করলে শুধু সেই দিনের হিসাব দেখা যাবে।
+
+</div>
+
+</div>
+
+
+<!-- SELL EDIT -->
+
+<div id="sellEditBox" class="card editBox hidden">
+
+<div class="editTitle">
+✏️ Sell Edit / Update
+</div>
+
+<div class="grid">
+
+<div>
+<label>Product</label>
+<select id="editSellProduct"></select>
+</div>
+
+<div>
+<label>Quantity</label>
+<input type="number" id="editSellQty" min="1">
+</div>
+
+<div>
+<label>Price</label>
+<input id="editSellPrice" readonly>
+</div>
+
+<div>
+<label>Available</label>
+<input id="editSellAvailable" readonly>
+</div>
+
+</div>
+
+<div class="actions">
+
+<button class="green" onclick="updateSell()">
+💾 Update Sell
+</button>
+
+<button class="gray" onclick="cancelSellEdit()">
+Cancel
+</button>
+
+</div>
+
+<p id="sellEditMsg" class="msg"></p>
+
+</div>
+
+
+<!-- DATE -->
+
+<div class="card">
+
+<h2>📅 Date Wise Search</h2>
+
+<input type="date" id="srDate">
+
+<div id="srDateText" class="selectedDate"></div>
+
+</div>
+
+
+<!-- STOCK -->
+
+<div class="card">
+
+<h2>📦 Stock / Sell / Return / Current</h2>
+
+<div class="tableWrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Product</th>
+<th>Price</th>
+<th>Previous</th>
+<th>Receive</th>
+<th>Sell</th>
+<th>Return</th>
+<th>Current</th>
+</tr>
+
+</thead>
+
+<tbody id="srStock"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- SELL -->
+
+<div class="card">
+
+<h2>🛒 আজকের Sell Entry</h2>
+
+<div class="grid">
+
+<div>
+<label>Date</label>
+<input type="date" id="sellDate" readonly>
+</div>
+
+<div>
+<label>Product</label>
+<select id="sellProduct"></select>
+</div>
+
+<div>
+<label>Quantity</label>
+<input type="number" id="sellQty" min="1">
+</div>
+
+<div>
+<label>Available</label>
+<input id="sellAvailable" readonly>
+</div>
+
+</div>
+
+<div class="actions">
+
+<button class="green" onclick="sell()">
+➕ Sell Save
+</button>
+
+</div>
+
+<p id="sellMsg" class="msg"></p>
+
+</div>
+
+
+<!-- RETURN -->
+
+<div class="card returnBox">
+
+<h2>↩️ আজকের Sell Return</h2>
+
+<p class="small">
+শুধুমাত্র আজকের দিনের Sell Return করা যাবে।
+Return করলে সেই পরিমাণ Stock আবার Current Stock-এ যোগ হবে।
+</p>
+
+<div class="grid">
+
+<div>
+<label>Product</label>
+<select id="returnProduct"></select>
+</div>
+
+<div>
+<label>Return Quantity</label>
+<input type="number" id="returnQty" min="1">
+</div>
+
+<div>
+<label>আজকের Net Sell</label>
+<input id="returnAvailable" readonly>
+</div>
+
+</div>
+
+<div class="actions">
+
+<button class="orange" onclick="returnSell()">
+↩️ Return Save
+</button>
+
+</div>
+
+<p id="returnMsg" class="msg"></p>
+
+</div>
+
+
+<!-- SELL HISTORY -->
+
+<div class="card">
+
+<h2>🛒 নির্বাচিত দিনের Sell History</h2>
+
+<div class="tableWrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Product</th>
+<th>Price</th>
+<th>Total Sell</th>
+<th>Return</th>
+<th>Net Sell</th>
+<th>Total Amount</th>
+<th>Action</th>
+</tr>
+
+</thead>
+
+<tbody id="sellHistory"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- CURRENT -->
+
+<div class="card">
+
+<h2>📦 Current Active Stock</h2>
+
+<div class="tableWrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Product</th>
+<th>Total Receive</th>
+<th>Total Sell</th>
+<th>Total Return</th>
+<th>Current</th>
+</tr>
+
+</thead>
+
+<tbody id="activeStock"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="footer">
+© নিশাত এন্টারপ্রাইজ
+</div>
+
+</div>
+
 
 <script>
 
-const cards = [
-    ["Sim",199],
-    ["Kit ",391],
-    ["Tin tin ",199],
-    ["Nishinto ",307],
-    ["Myplan ",199],
-    ["20 sc",19.81],
-    ["39 mb",38],
-    ["49 v",47.73],
-    ["49 MB",47.73],
-    ["29 v",28.25],
-    ["19 v",18.81]
+/* =====================================================
+PRODUCT
+===================================================== */
+
+const products={
+"Sim":199,
+"Kit":391,
+"Tin tin":199,
+"Nishinto":307,
+"Myplan":199,
+"20 sc":19.81,
+"39 mb":38,
+"49 v":47.73,
+"49 MB":47.73,
+"29 v":28.25,
+"19 v":18.81
+};
+
+
+/* =====================================================
+SR
+===================================================== */
+
+const srList=[
+{name:"রায়হান",id:"RAYHAN"},
+{name:"মুজাহিদ",id:"MUJAHID"},
+{name:"ইলিয়াস",id:"ELIAS"},
+{name:"সেলিম",id:"SELIM"}
 ];
 
-const table = document.getElementById("cardTable");
 
-cards.forEach((card,index)=>{
+/* =====================================================
+ACCOUNTS
+===================================================== */
 
-    let row=document.createElement("tr");
+let accounts=
+JSON.parse(
+localStorage.getItem("NISHAT_ACCOUNTS_FINAL")||"null"
+);
 
-    row.innerHTML=`
-        <td>${card[0]}</td>
-        <td>${card[1].toFixed(2)}</td>
-        <td>
-            <input class="qty"
-                   type="number"
-                   min="0"
-                   value="0"
-                   id="qty${index}"
-                   oninput="calculate()">
-        </td>
-        <td>
-            <span id="total${index}">0.00</span>
-        </td>
-    `;
+if(!accounts){
 
-    table.appendChild(row);
+accounts={
+
+ADMIN:{
+name:"Admin",
+password:"250656",
+role:"ADMIN"
+},
+
+RAYHAN:{
+name:"রায়হান",
+password:"123455",
+role:"SR"
+},
+
+MUJAHID:{
+name:"মুজাহিদ",
+password:"123455",
+role:"SR"
+},
+
+ELIAS:{
+name:"ইলিয়াস",
+password:"123455",
+role:"SR"
+},
+
+SELIM:{
+name:"সেলিম",
+password:"123455",
+role:"SR"
+}
+
+};
+
+}
+
+
+/* =====================================================
+DATABASE
+===================================================== */
+
+let stocks=
+JSON.parse(
+localStorage.getItem("NISHAT_STOCKS_FINAL")||"[]"
+);
+
+let sales=
+JSON.parse(
+localStorage.getItem("NISHAT_SALES_FINAL")||"[]"
+);
+
+let returns=
+JSON.parse(
+localStorage.getItem("NISHAT_RETURNS_FINAL")||"[]"
+);
+
+let resetRequests=
+JSON.parse(
+localStorage.getItem("NISHAT_RESET_FINAL")||"[]"
+);
+
+let currentSR=null;
+let approvedReset=null;
+let editingStockId=null;
+let editingSellProduct=null;
+
+
+/* =====================================================
+DATE
+===================================================== */
+
+function getToday(){
+
+return new Date()
+.toISOString()
+.slice(0,10);
+
+}
+
+document.getElementById("addDate").value=getToday();
+document.getElementById("adminDate").value=getToday();
+document.getElementById("srDate").value=getToday();
+document.getElementById("sellDate").value=getToday();
+
+
+/* =====================================================
+SAVE
+===================================================== */
+
+function save(){
+
+localStorage.setItem(
+"NISHAT_ACCOUNTS_FINAL",
+JSON.stringify(accounts)
+);
+
+localStorage.setItem(
+"NISHAT_STOCKS_FINAL",
+JSON.stringify(stocks)
+);
+
+localStorage.setItem(
+"NISHAT_SALES_FINAL",
+JSON.stringify(sales)
+);
+
+localStorage.setItem(
+"NISHAT_RETURNS_FINAL",
+JSON.stringify(returns)
+);
+
+localStorage.setItem(
+"NISHAT_RESET_FINAL",
+JSON.stringify(resetRequests)
+);
+
+}
+
+
+/* =====================================================
+OPTIONS
+===================================================== */
+
+function loadOptions(){
+
+let srHTML="";
+
+srList.forEach(sr=>{
+
+srHTML+=`
+<option value="${sr.id}">
+${sr.name} (${sr.id})
+</option>
+`;
+
+});
+
+document.getElementById("addSR").innerHTML=srHTML;
+document.getElementById("srID").innerHTML=srHTML;
+document.getElementById("editStockSR").innerHTML=srHTML;
+
+
+let pHTML="";
+
+Object.keys(products).forEach(p=>{
+
+pHTML+=`
+<option value="${p}">
+${p} — ৳${products[p]}
+</option>
+`;
+
+});
+
+document.getElementById("addProduct").innerHTML=pHTML;
+document.getElementById("sellProduct").innerHTML=pHTML;
+document.getElementById("returnProduct").innerHTML=pHTML;
+document.getElementById("editSellProduct").innerHTML=pHTML;
+document.getElementById("editStockProduct").innerHTML=pHTML;
+
+}
+
+loadOptions();
+
+
+/* =====================================================
+PAGE
+===================================================== */
+
+function showPage(page){
+
+document
+.querySelectorAll(".section")
+.forEach(x=>x.classList.remove("active"));
+
+document
+.getElementById(page)
+.classList.add("active");
+
+}
+
+
+/* =====================================================
+ADMIN LOGIN
+===================================================== */
+
+function adminLogin(){
+
+let id=
+document.getElementById("adminID")
+.value
+.trim()
+.toUpperCase();
+
+let pass=
+document.getElementById("adminPassword").value;
+
+if(
+id==="ADMIN" &&
+accounts.ADMIN.password===pass
+){
+
+document
+.getElementById("adminLoginBox")
+.classList.add("hidden");
+
+document
+.getElementById("adminPanel")
+.classList.remove("hidden");
+
+renderAdmin();
+
+}else{
+
+showMsg(
+"adminMsg",
+"❌ Admin ID অথবা Password ভুল",
+false
+);
+
+}
+
+}
+
+
+function adminLogout(){
+
+document
+.getElementById("adminPanel")
+.classList.add("hidden");
+
+document
+.getElementById("adminLoginBox")
+.classList.remove("hidden");
+
+document.getElementById("adminPassword").value="";
+
+}
+
+
+/* =====================================================
+ADD STOCK
+===================================================== */
+
+function addStock(){
+
+let date=document.getElementById("addDate").value;
+let sr=document.getElementById("addSR").value;
+let product=document.getElementById("addProduct").value;
+let qty=Number(document.getElementById("addQty").value);
+
+if(!date||!sr||!product||qty<=0){
+
+showMsg("addMsg","⚠️ সব তথ্য দিন",false);
+return;
+
+}
+
+stocks.push({
+
+id:Date.now()+Math.random(),
+
+addDate:date,
+sr:sr,
+product:product,
+qty:qty,
+
+createdAt:new Date().toISOString()
+
+});
+
+save();
+
+document.getElementById("addQty").value="";
+
+showMsg(
+"addMsg",
+"✅ Stock Add হয়েছে",
+true
+);
+
+renderAdmin();
+
+}
+
+
+/* =====================================================
+STOCK EDIT
+===================================================== */
+
+function editStock(id){
+
+let item=stocks.find(x=>x.id===id);
+
+if(!item)return;
+
+editingStockId=id;
+
+document.getElementById("editStockDate").value=item.addDate;
+document.getElementById("editStockSR").value=item.sr;
+document.getElementById("editStockProduct").value=item.product;
+document.getElementById("editStockQty").value=item.qty;
+
+document
+.getElementById("stockEditBox")
+.classList.remove("hidden");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* =====================================================
+UPDATE STOCK
+===================================================== */
+
+function updateStock(){
+
+if(!editingStockId)return;
+
+let item=stocks.find(x=>x.id===editingStockId);
+
+if(!item)return;
+
+let date=document.getElementById("editStockDate").value;
+let sr=document.getElementById("editStockSR").value;
+let product=document.getElementById("editStockProduct").value;
+let qty=Number(document.getElementById("editStockQty").value);
+
+if(!date||!sr||!product||qty<=0){
+
+showMsg(
+"stockEditMsg",
+"⚠️ সঠিক তথ্য দিন",
+false
+);
+
+return;
+
+}
+
+let soldBefore=
+netSoldBetween(sr,product,date,getToday());
+
+if(qty<soldBefore){
+
+showMsg(
+"stockEditMsg",
+"❌ এই Stock-এর ওপর ইতোমধ্যে "+soldBefore+
+" পিস Net Sell হয়েছে। Quantity কমানো যাবে না।",
+false
+);
+
+return;
+
+}
+
+item.addDate=date;
+item.sr=sr;
+item.product=product;
+item.qty=qty;
+item.updatedAt=new Date().toISOString();
+
+save();
+
+editingStockId=null;
+
+document
+.getElementById("stockEditBox")
+.classList.add("hidden");
+
+showMsg(
+"addMsg",
+"✅ Stock সফলভাবে Update হয়েছে",
+true
+);
+
+renderAdmin();
+
+}
+
+
+function cancelStockEdit(){
+
+editingStockId=null;
+
+document
+.getElementById("stockEditBox")
+.classList.add("hidden");
+
+}
+
+
+/* =====================================================
+DATE HELPERS
+===================================================== */
+
+function previousDate(date){
+
+let d=new Date(date+"T00:00:00");
+
+d.setDate(d.getDate()-1);
+
+return d.toISOString().slice(0,10);
+
+}
+
+
+function formatDate(date){
+
+if(!date)return "";
+
+let p=date.split("-");
+
+return p[2]+"-"+p[1]+"-"+p[0];
+
+}
+
+
+/* =====================================================
+STOCK
+===================================================== */
+
+function totalReceived(sr,product,date){
+
+return stocks
+.filter(x=>
+x.sr===sr &&
+x.product===product &&
+x.addDate<=date
+)
+.reduce(
+(sum,x)=>sum+Number(x.qty),
+0
+);
+
+}
+
+
+function totalSoldRaw(sr,product,date){
+
+return sales
+.filter(x=>
+x.sr===sr &&
+x.product===product &&
+x.date<=date
+)
+.reduce(
+(sum,x)=>sum+Number(x.qty),
+0
+);
+
+}
+
+
+function totalReturned(sr,product,date){
+
+return returns
+.filter(x=>
+x.sr===sr &&
+x.product===product &&
+x.date<=date
+)
+.reduce(
+(sum,x)=>sum+Number(x.qty),
+0
+);
+
+}
+
+
+function totalSold(sr,product,date){
+
+return Math.max(
+0,
+totalSoldRaw(sr,product,date)
+-
+totalReturned(sr,product,date)
+);
+
+}
+
+
+function currentStock(sr,product,date){
+
+return Math.max(
+0,
+totalReceived(sr,product,date)
+-
+totalSold(sr,product,date)
+);
+
+}
+
+
+function receivedOnDate(sr,product,date){
+
+return stocks
+.filter(x=>
+x.sr===sr &&
+x.product===product &&
+x.addDate===date
+)
+.reduce(
+(sum,x)=>sum+Number(x.qty),
+0
+);
+
+}
+
+
+function soldOnDate(sr,product,date){
+
+return sales
+.filter(x=>
+x.sr===sr &&
+x.product===product &&
+x.date===date
+)
+.reduce(
+(sum,x)=>sum+Number(x.qty),
+0
+);
+
+}
+
+
+function returnedOnDate(sr,product,date){
+
+return returns
+.filter(x=>
+x.sr===sr &&
+x.product===product &&
+x.date===date
+)
+.reduce(
+(sum,x)=>sum+Number(x.qty),
+0
+);
+
+}
+
+
+function netSoldOnDate(sr,product,date){
+
+return Math.max(
+0,
+soldOnDate(sr,product,date)
+-
+returnedOnDate(sr,product,date)
+);
+
+}
+
+
+function netSoldBetween(sr,product,start,end){
+
+let sold=sales
+.filter(x=>
+x.sr===sr &&
+x.product===product &&
+x.date>=start &&
+x.date<=end
+)
+.reduce((sum,x)=>sum+Number(x.qty),0);
+
+let ret=returns
+.filter(x=>
+x.sr===sr &&
+x.product===product &&
+x.date>=start &&
+x.date<=end
+)
+.reduce((sum,x)=>sum+Number(x.qty),0);
+
+return Math.max(0,sold-ret);
+
+}
+
+
+/* =====================================================
+SR LOGIN
+===================================================== */
+
+function srLogin(){
+
+let id=document.getElementById("srID").value;
+let pass=document.getElementById("srPassword").value;
+
+if(
+accounts[id] &&
+accounts[id].role==="SR" &&
+accounts[id].password===pass
+){
+
+currentSR=id;
+
+document
+.getElementById("srLoginBox")
+.classList.add("hidden");
+
+document
+.getElementById("srPanel")
+.classList.remove("hidden");
+
+document
+.getElementById("loggedSR")
+.textContent=
+accounts[id].name+" ("+id+")";
+
+renderSR();
+
+}else{
+
+showMsg(
+"srMsg",
+"❌ SR ID অথবা Password ভুল",
+false
+);
+
+}
+
+}
+
+
+function srLogout(){
+
+currentSR=null;
+
+document
+.getElementById("srPanel")
+.classList.add("hidden");
+
+document
+.getElementById("srLoginBox")
+.classList.remove("hidden");
+
+document.getElementById("srPassword").value="";
+
+}
+
+
+/* =====================================================
+SELL
+===================================================== */
+
+function sell(){
+
+if(!currentSR)return;
+
+const date=getToday();
+
+const product=
+document.getElementById("sellProduct").value;
+
+const qty=
+Number(document.getElementById("sellQty").value);
+
+if(!product||qty<=0){
+
+showMsg(
+"sellMsg",
+"⚠️ Product ও Quantity দিন",
+false
+);
+
+return;
+
+}
+
+const available=
+currentStock(
+currentSR,
+product,
+date
+);
+
+if(qty>available){
+
+showMsg(
+"sellMsg",
+"❌ পর্যাপ্ত Stock নেই। Current Stock: "+
+available+" পিস",
+false
+);
+
+return;
+
+}
+
+sales.push({
+
+id:Date.now()+Math.random(),
+
+date:date,
+sr:currentSR,
+product:product,
+qty:qty,
+price:products[product],
+amount:qty*products[product],
+
+createdAt:new Date().toISOString()
+
+});
+
+save();
+
+document.getElementById("sellQty").value="";
+
+showMsg(
+"sellMsg",
+"✅ Sell Save হয়েছে",
+true
+);
+
+renderSR();
+
+}
+
+
+/* =====================================================
+SELL EDIT
+===================================================== */
+
+function editSell(product,date){
+
+if(date!==getToday()){
+
+showMsg(
+"sellMsg",
+"❌ আগের দিনের Sell আর Edit করা যাবে না।",
+false
+);
+
+return;
+
+}
+
+let records=
+sales.filter(x=>
+x.sr===currentSR &&
+x.product===product &&
+x.date===date
+);
+
+if(records.length===0)return;
+
+let totalQty=
+records.reduce(
+(sum,x)=>sum+Number(x.qty),
+0
+);
+
+let returned=
+returnedOnDate(
+currentSR,
+product,
+date
+);
+
+let netQty=
+Math.max(0,totalQty-returned);
+
+editingSellProduct=product;
+
+document.getElementById("editSellProduct").value=product;
+document.getElementById("editSellQty").value=netQty;
+document.getElementById("editSellPrice").value="৳"+products[product];
+
+let current=currentStock(
+currentSR,
+product,
+date
+);
+
+document.getElementById("editSellAvailable").value=
+(current+netQty)+" পিস";
+
+document
+.getElementById("sellEditBox")
+.classList.remove("hidden");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* =====================================================
+UPDATE SELL
+===================================================== */
+
+function updateSell(){
+
+if(!currentSR||!editingSellProduct)return;
+
+const date=getToday();
+
+let newProduct=
+document.getElementById("editSellProduct").value;
+
+let newQty=
+Number(document.getElementById("editSellQty").value);
+
+if(newQty<=0){
+
+showMsg(
+"sellEditMsg",
+"⚠️ সঠিক Quantity দিন",
+false
+);
+
+return;
+
+}
+
+let oldProduct=editingSellProduct;
+
+let oldRecords=
+sales.filter(x=>
+x.sr===currentSR &&
+x.product===oldProduct &&
+x.date===date
+);
+
+let oldQty=
+oldRecords.reduce(
+(sum,x)=>sum+Number(x.qty),0
+);
+
+let oldReturn=
+returnedOnDate(
+currentSR,
+oldProduct,
+date
+);
+
+let oldNet=
+Math.max(0,oldQty-oldReturn);
+
+let availableNew=
+currentStock(
+currentSR,
+newProduct,
+date
+);
+
+if(newProduct===oldProduct){
+
+availableNew+=oldNet;
+
+}
+
+if(newQty>availableNew){
+
+showMsg(
+"sellEditMsg",
+"❌ পর্যাপ্ত Stock নেই। Available: "+
+availableNew+" পিস",
+false
+);
+
+return;
+
+}
+
+
+/*
+শুধু আজকের ঐ Product-এর Sell
+consolidate করা হচ্ছে।
+পুরোনো Return record থাকলে সেটি
+নষ্ট করা হচ্ছে না।
+*/
+
+sales=sales.filter(x=>
+!(
+x.sr===currentSR &&
+x.date===date &&
+x.product===oldProduct
+)
+);
+
+sales.push({
+
+id:Date.now()+Math.random(),
+
+date:date,
+sr:currentSR,
+product:newProduct,
+qty:newQty,
+price:products[newProduct],
+amount:newQty*products[newProduct],
+
+createdAt:new Date().toISOString(),
+updatedAt:new Date().toISOString()
+
+});
+
+save();
+
+editingSellProduct=null;
+
+document
+.getElementById("sellEditBox")
+.classList.add("hidden");
+
+showMsg(
+"sellMsg",
+"✅ Sell সফলভাবে সংশোধন হয়েছে",
+true
+);
+
+renderSR();
+
+}
+
+
+function cancelSellEdit(){
+
+editingSellProduct=null;
+
+document
+.getElementById("sellEditBox")
+.classList.add("hidden");
+
+}
+
+
+/* =====================================================
+RETURN
+===================================================== */
+
+function returnSell(){
+
+if(!currentSR)return;
+
+const date=getToday();
+
+const product=
+document.getElementById("returnProduct").value;
+
+const qty=
+Number(document.getElementById("returnQty").value);
+
+if(!product||qty<=0){
+
+showMsg(
+"returnMsg",
+"⚠️ Product ও Return Quantity দিন",
+false
+);
+
+return;
+
+}
+
+let net=
+netSoldOnDate(
+currentSR,
+product,
+date
+);
+
+if(qty>net){
+
+showMsg(
+"returnMsg",
+"❌ এত পিস Net Sell নেই। বর্তমান Net Sell: "+
+net+" পিস",
+false
+);
+
+return;
+
+}
+
+returns.push({
+
+id:Date.now()+Math.random(),
+
+date:date,
+sr:currentSR,
+product:product,
+qty:qty,
+price:products[product],
+amount:qty*products[product],
+
+createdAt:new Date().toISOString()
+
+});
+
+save();
+
+document.getElementById("returnQty").value="";
+
+showMsg(
+"returnMsg",
+"✅ "+qty+" পিস Return হয়েছে। Stock আবার যোগ হয়েছে।",
+true
+);
+
+renderSR();
+
+}
+
+
+/* =====================================================
+RETURN AVAILABLE
+===================================================== */
+
+function updateReturnAvailable(){
+
+if(!currentSR)return;
+
+let product=
+document.getElementById("returnProduct").value;
+
+let net=
+netSoldOnDate(
+currentSR,
+product,
+getToday()
+);
+
+document.getElementById("returnAvailable").value=
+net+" পিস";
+
+}
+
+
+/* =====================================================
+SELL AVAILABLE
+===================================================== */
+
+function updateAvailable(){
+
+if(!currentSR)return;
+
+let product=
+document.getElementById("sellProduct").value;
+
+let available=
+currentStock(
+currentSR,
+product,
+getToday()
+);
+
+document.getElementById("sellAvailable").value=
+available+" পিস";
+
+}
+
+
+/* =====================================================
+SR RENDER
+===================================================== */
+
+function renderSR(){
+
+if(!currentSR)return;
+
+let date=
+document.getElementById("srDate").value;
+
+document.getElementById("srDateText").textContent=
+"📅 নির্বাচিত তারিখ: "+formatDate(date);
+
+
+/* STOCK */
+
+let html="";
+
+Object.keys(products).forEach(product=>{
+
+let previous=
+currentStock(
+currentSR,
+product,
+previousDate(date)
+);
+
+let receive=
+receivedOnDate(
+currentSR,
+product,
+date
+);
+
+let sellQty=
+soldOnDate(
+currentSR,
+product,
+date
+);
+
+let returnQty=
+returnedOnDate(
+currentSR,
+product,
+date
+);
+
+let net=
+netSoldOnDate(
+currentSR,
+product,
+date
+);
+
+let current=
+currentStock(
+currentSR,
+product,
+date
+);
+
+html+=`
+
+<tr>
+
+<td><b>${product}</b></td>
+
+<td>৳${products[product]}</td>
+
+<td>${previous}</td>
+
+<td>${receive}</td>
+
+<td class="sell">${sellQty}</td>
+
+<td class="return">${returnQty}</td>
+
+<td class="${current>0?"current":"zero"}">
+${current}
+</td>
+
+</tr>
+
+`;
+
+});
+
+document.getElementById("srStock").innerHTML=html;
+
+
+/* SELL HISTORY */
+
+let grouped={};
+
+sales
+.filter(x=>
+x.sr===currentSR &&
+x.date===date
+)
+.forEach(x=>{
+
+if(!grouped[x.product]){
+grouped[x.product]={
+sell:0,
+amount:0
+};
+}
+
+grouped[x.product].sell+=Number(x.qty);
+grouped[x.product].amount+=Number(x.amount);
+
 });
 
 
-/* আজকের তারিখ */
-function today(){
+let history="";
 
-    let d=new Date();
+Object.keys(products).forEach(product=>{
 
-    let y=d.getFullYear();
-    let m=String(d.getMonth()+1).padStart(2,"0");
-    let day=String(d.getDate()).padStart(2,"0");
+if(!grouped[product])return;
 
-    return `${y}-${m}-${day}`;
+let totalSell=grouped[product].sell;
+
+let totalReturn=
+returnedOnDate(
+currentSR,
+product,
+date
+);
+
+let net=
+Math.max(0,totalSell-totalReturn);
+
+let amount=
+net*products[product];
+
+let canEdit=date===getToday();
+
+history+=`
+
+<tr>
+
+<td><b>${product}</b></td>
+
+<td>৳${products[product]}</td>
+
+<td class="sell">${totalSell}</td>
+
+<td class="return">${totalReturn}</td>
+
+<td class="sell">${net}</td>
+
+<td>৳${amount.toFixed(2)}</td>
+
+<td>
+
+${
+canEdit
+?
+`
+<button
+class="orange"
+onclick="editSell('${product}','${date}')">
+✏️ Edit
+</button>
+`
+:
+`
+<span class="small">🔒 Locked</span>
+`
 }
 
-document.getElementById("date").value=today();
+</td>
+
+</tr>
+
+`;
+
+});
+
+document.getElementById("sellHistory").innerHTML=
+history ||
+`
+<tr>
+<td colspan="7">
+এই তারিখে কোনো Sell নেই
+</td>
+</tr>
+`;
 
 
-/* হিসাব */
-function calculate(){
+/* ACTIVE STOCK */
 
-    let grand=0;
+let active="";
 
-    cards.forEach((card,index)=>{
+Object.keys(products).forEach(product=>{
 
-        let qty=Number(
-            document.getElementById("qty"+index).value
-        ) || 0;
+let receive=
+totalReceived(
+currentSR,
+product,
+getToday()
+);
 
-        let total=qty*card[1];
+let sold=
+totalSold(
+currentSR,
+product,
+getToday()
+);
 
-        document.getElementById("total"+index)
-        .innerText=total.toFixed(2);
+let ret=
+totalReturned(
+currentSR,
+product,
+getToday()
+);
 
-        grand+=total;
-    });
+let current=
+currentStock(
+currentSR,
+product,
+getToday()
+);
 
-    document.getElementById("grandTotal")
-    .innerText=grand.toFixed(2);
+if(receive>0){
+
+active+=`
+
+<tr>
+
+<td>${product}</td>
+
+<td>${receive}</td>
+
+<td class="sell">${sold}</td>
+
+<td class="return">${ret}</td>
+
+<td class="${current>0?"current":"zero"}">
+${current}
+</td>
+
+</tr>
+
+`;
+
+}
+
+});
+
+document.getElementById("activeStock").innerHTML=
+active ||
+`
+<tr>
+<td colspan="5">
+কোনো Active Stock নেই
+</td>
+</tr>
+`;
+
+updateAvailable();
+updateReturnAvailable();
+
 }
 
 
-/* হিসাব সেভ */
-function saveData(){
+/* =====================================================
+MONEY
+===================================================== */
 
-    let date=document.getElementById("date").value;
+function dailyMoney(sr,date){
 
-    if(!date){
-        alert("তারিখ নির্বাচন করুন");
-        return;
-    }
+let amount=0;
 
-    let data=[];
+sales
+.filter(x=>
+x.sr===sr &&
+x.date===date
+)
+.forEach(x=>{
+amount+=Number(x.qty)*Number(x.price);
+});
 
-    cards.forEach((card,index)=>{
+returns
+.filter(x=>
+x.sr===sr &&
+x.date===date
+)
+.forEach(x=>{
+amount-=Number(x.qty)*Number(x.price);
+});
 
-        data.push(
-            Number(
-                document.getElementById("qty"+index).value
-            ) || 0
-        );
+return Math.max(0,amount);
 
-    });
-
-    localStorage.setItem(
-        "nishat_"+date,
-        JSON.stringify(data)
-    );
-
-    updateHistory();
-
-    alert("হিসাব সেভ হয়েছে");
 }
 
 
-/* হিসাব লোড */
-function loadDate(date){
+function totalDailyMoney(date){
 
-    document.getElementById("date").value=date;
+return srList.reduce(
+(sum,sr)=>sum+dailyMoney(sr.id,date),
+0
+);
 
-    let saved=localStorage.getItem("nishat_"+date);
-
-    cards.forEach((card,index)=>{
-
-        let qty=0;
-
-        if(saved){
-            let data=JSON.parse(saved);
-            qty=data[index] || 0;
-        }
-
-        document.getElementById("qty"+index)
-        .value=qty;
-    });
-
-    calculate();
 }
 
 
-/* তারিখ পরিবর্তন করলে*/
-document.getElementById("date")
-.addEventListener("change",function(){
+/* =====================================================
+DAILY SALES
+===================================================== */
 
-    loadDate(this.value);
+function getSaleDates(){
+
+let dates=[
+...sales.map(x=>x.date),
+...returns.map(x=>x.date)
+];
+
+return [
+...new Set(dates)
+]
+.sort((a,b)=>b.localeCompare(a));
+
+}
+
+
+function renderDailySales(){
+
+let dates=getSaleDates();
+
+let html="";
+
+dates.forEach(date=>{
+
+let rayhan=dailyMoney("RAYHAN",date);
+let mujahid=dailyMoney("MUJAHID",date);
+let elias=dailyMoney("ELIAS",date);
+let selim=dailyMoney("SELIM",date);
+
+let total=
+rayhan+mujahid+elias+selim;
+
+html+=`
+
+<tr>
+
+<td><b>${formatDate(date)}</b></td>
+
+<td class="money">৳${rayhan.toFixed(2)}</td>
+
+<td class="money">৳${mujahid.toFixed(2)}</td>
+
+<td class="money">৳${elias.toFixed(2)}</td>
+
+<td class="money">৳${selim.toFixed(2)}</td>
+
+<td class="money">
+<b>৳${total.toFixed(2)}</b>
+</td>
+
+</tr>
+
+`;
+
+});
+
+document.getElementById("dailySalesTable").innerHTML=
+html ||
+`
+<tr>
+<td colspan="6">
+এখনো কোনো Sell নেই
+</td>
+</tr>
+`;
+
+}
+
+
+/* =====================================================
+ADMIN RENDER
+===================================================== */
+
+function renderAdmin(){
+
+if(
+document
+.getElementById("adminPanel")
+.classList.contains("hidden")
+)return;
+
+renderResetRequests();
+
+let date=
+document.getElementById("adminDate").value;
+
+document.getElementById("adminDateText").textContent=
+"📅 নির্বাচিত তারিখ: "+formatDate(date);
+
+
+/* MONEY */
+
+let rayhan=dailyMoney("RAYHAN",date);
+let mujahid=dailyMoney("MUJAHID",date);
+let elias=dailyMoney("ELIAS",date);
+let selim=dailyMoney("SELIM",date);
+
+let grand=
+rayhan+mujahid+elias+selim;
+
+document.getElementById("moneyRayhan").textContent=
+"৳"+rayhan.toFixed(2);
+
+document.getElementById("moneyMujahid").textContent=
+"৳"+mujahid.toFixed(2);
+
+document.getElementById("moneyElias").textContent=
+"৳"+elias.toFixed(2);
+
+document.getElementById("moneySelim").textContent=
+"৳"+selim.toFixed(2);
+
+document.getElementById("grandMoney").textContent=
+"৳"+grand.toFixed(2);
+
+renderDailySales();
+
+
+/* SUMMARY */
+
+let totalReceive=0;
+let totalSell=0;
+let totalReturn=0;
+let totalCurrent=0;
+
+srList.forEach(sr=>{
+
+Object.keys(products).forEach(product=>{
+
+totalReceive+=
+receivedOnDate(sr.id,product,date);
+
+totalSell+=
+soldOnDate(sr.id,product,date);
+
+totalReturn+=
+returnedOnDate(sr.id,product,date);
+
+totalCurrent+=
+currentStock(sr.id,product,date);
+
+});
+
+});
+
+document.getElementById("aReceive").textContent=totalReceive;
+document.getElementById("aSell").textContent=totalSell;
+document.getElementById("aReturn").textContent=totalReturn;
+document.getElementById("aCurrent").textContent=totalCurrent;
+
+document.getElementById("aAmount").textContent=
+"৳"+grand.toFixed(2);
+
+
+/* SR STOCK */
+
+let srHTML="";
+
+srList.forEach(sr=>{
+
+let rows="";
+
+Object.keys(products).forEach(product=>{
+
+let previous=
+currentStock(
+sr.id,
+product,
+previousDate(date)
+);
+
+let receive=
+receivedOnDate(
+sr.id,
+product,
+date
+);
+
+let sellQty=
+soldOnDate(
+sr.id,
+product,
+date
+);
+
+let ret=
+returnedOnDate(
+sr.id,
+product,
+date
+);
+
+let current=
+currentStock(
+sr.id,
+product,
+date
+);
+
+rows+=`
+
+<tr>
+
+<td>${product}</td>
+
+<td>${previous}</td>
+
+<td>${receive}</td>
+
+<td class="sell">${sellQty}</td>
+
+<td class="return">${ret}</td>
+
+<td class="${current>0?"current":"zero"}">
+${current}
+</td>
+
+</tr>
+
+`;
+
+});
+
+srHTML+=`
+
+<div class="box">
+
+<div class="boxTitle">
+👤 ${sr.name} — ${sr.id}
+</div>
+
+<div class="tableWrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Product</th>
+<th>Previous</th>
+<th>Receive</th>
+<th>Sell</th>
+<th>Return</th>
+<th>Current</th>
+</tr>
+
+</thead>
+
+<tbody>
+${rows}
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("adminSR").innerHTML=srHTML;
+
+
+/* PRODUCT REPORT */
+
+let productHTML="";
+
+let grandQty=0;
+let grandAmount=0;
+
+srList.forEach(sr=>{
+
+let srTotalQty=0;
+let srTotalAmount=0;
+
+Object.keys(products).forEach(product=>{
+
+let previous=
+currentStock(
+sr.id,
+product,
+previousDate(date)
+);
+
+let receive=
+receivedOnDate(
+sr.id,
+product,
+date
+);
+
+let sellQty=
+soldOnDate(
+sr.id,
+product,
+date
+);
+
+let ret=
+returnedOnDate(
+sr.id,
+product,
+date
+);
+
+let net=
+Math.max(0,sellQty-ret);
+
+let current=
+currentStock(
+sr.id,
+product,
+date
+);
+
+let amount=
+net*products[product];
+
+srTotalQty+=net;
+srTotalAmount+=amount;
+
+grandQty+=net;
+grandAmount+=amount;
+
+productHTML+=`
+
+<tr>
+
+<td>${sr.name}</td>
+
+<td>${product}</td>
+
+<td>৳${products[product]}</td>
+
+<td>${receive}</td>
+
+<td>${previous}</td>
+
+<td class="sell">${sellQty}</td>
+
+<td class="return">${ret}</td>
+
+<td class="${current>0?"current":"zero"}">
+${current}
+</td>
+
+<td class="money">
+৳${amount.toFixed(2)}
+</td>
+
+</tr>
+
+`;
 
 });
 
 
-/* আগের হিসাবের তালিকা */
-function updateHistory(){
+productHTML+=`
 
-    let select=document.getElementById("history");
+<tr class="srTotal">
 
-    select.innerHTML=
-        '<option value="">তারিখ নির্বাচন করুন</option>';
+<td colspan="2">
+🟢 ${sr.name} — TOTAL
+</td>
 
-    let dates=[];
+<td>-</td>
+<td>-</td>
+<td>-</td>
 
-    for(let i=0;i<localStorage.length;i++){
+<td class="sell">
+${srTotalQty} পিস
+</td>
 
-        let key=localStorage.key(i);
+<td>-</td>
+<td>-</td>
 
-        if(key.startsWith("nishat_")){
+<td class="money">
+৳${srTotalAmount.toFixed(2)}
+</td>
 
-            dates.push(key.replace("nishat_",""));
-        }
-    }
+</tr>
 
-    dates.sort().reverse();
+`;
 
-    dates.forEach(date=>{
+});
 
-        let option=document.createElement("option");
 
-        option.value=date;
-        option.innerText=date;
+productHTML+=`
 
-        select.appendChild(option);
-    });
+<tr class="grandTotal">
+
+<td colspan="5">
+💰 GRAND TOTAL NET SALES
+</td>
+
+<td>
+${grandQty} পিস
+</td>
+
+<td>-</td>
+<td>-</td>
+
+<td>
+৳${grandAmount.toFixed(2)}
+</td>
+
+</tr>
+
+`;
+
+document.getElementById("adminProducts").innerHTML=productHTML;
+
+
+/* STOCK HISTORY */
+
+let history="";
+
+stocks
+.slice()
+.sort(
+(a,b)=>b.addDate.localeCompare(a.addDate)
+)
+.forEach(entry=>{
+
+let current=
+currentStock(
+entry.sr,
+entry.product,
+today
+);
+
+history+=`
+
+<tr>
+
+<td>${formatDate(entry.addDate)}</td>
+
+<td>${accounts[entry.sr].name}</td>
+
+<td>${entry.product}</td>
+
+<td>${entry.qty}</td>
+
+<td class="${current>0?"current":"zero"}">
+${current}
+</td>
+
+<td>
+
+<button
+class="orange"
+onclick="editStock(${entry.id})">
+✏️ Edit
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+document.getElementById("stockHistory").innerHTML=
+history ||
+`
+<tr>
+<td colspan="6">
+কোনো Stock History নেই
+</td>
+</tr>
+`;
+
 }
 
 
-/* পুরনো হিসাব খুলুন */
-function loadHistory(){
+/* =====================================================
+FORGOT PASSWORD
+===================================================== */
 
-    let date=document.getElementById("history").value;
+function forgotPassword(){
 
-    if(date){
-        loadDate(date);
-    }
+let sr=
+document.getElementById("srID").value;
+
+
+/*
+Approved Request আছে কিনা দেখবে।
+Admin Panel-এ এটি দেখাবে না।
+*/
+
+let approved=
+resetRequests.find(r=>
+r.sr===sr &&
+r.status==="APPROVED"
+);
+
+if(approved){
+
+approvedReset=approved;
+
+document.getElementById("resetID").value=sr;
+
+document
+.getElementById("srLoginBox")
+.classList.add("hidden");
+
+document
+.getElementById("resetBox")
+.classList.remove("hidden");
+
+document.getElementById("resetInfo").innerHTML=`
+
+<div class="successBox">
+✅ Admin আপনার Password Reset Approve করেছে।
+এখন নতুন Password সেট করুন।
+</div>
+
+`;
+
+return;
+
 }
 
 
-/* বর্ত মান দিনের হিসাব মুছুন*/
-function clearDay(){
+let pending=
+resetRequests.find(r=>
+r.sr===sr &&
+r.status==="PENDING"
+);
 
-    let date=document.getElementById("date").value;
+if(pending){
 
-    if(!confirm(
-        date+" তারিখের হিসাব মুছে ফেলবেন"
-    )){
-        return;
-    }
+showMsg(
+"srMsg",
+"⏳ আপনার Request Admin Approval-এর অপেক্ষায় আছে।",
+false
+);
 
-    localStorage.removeItem("nishat_"+date);
+return;
 
-    cards.forEach((card,index)=>{
-
-        document.getElementById("qty"+index)
-        .value=0;
-
-    });
-
-    calculate();
-    updateHistory();
 }
 
 
-/*শুরুতে আগের হিসাব দেখাবে */
-updateHistory();
+/*
+নতুন Request
+*/
+
+resetRequests.push({
+
+id:Date.now()+Math.random(),
+
+sr:sr,
+name:accounts[sr].name,
+
+status:"PENDING",
+
+time:new Date().toLocaleString("bn-BD")
+
+});
+
+save();
+
+showMsg(
+"srMsg",
+"✅ Reset Request Admin-এর কাছে পাঠানো হয়েছে।",
+true
+);
+
+}
+
+
+/* =====================================================
+RESET REQUEST RENDER
+শুধু PENDING দেখাবে
+APPROVED হলে এখান থেকে চলে যাবে
+===================================================== */
+
+function renderResetRequests(){
+
+let pendingRequests=
+resetRequests.filter(
+r=>r.status==="PENDING"
+);
+
+document.getElementById("resetRequestCount").textContent=
+"🔔 Pending Request: "+pendingRequests.length;
+
+if(pendingRequests.length===0){
+
+document.getElementById("resetRequests").innerHTML=
+"<div class='small'>কোনো Pending Request নেই।</div>";
+
+return;
+
+}
+
+let html="";
+
+pendingRequests
+.slice()
+.reverse()
+.forEach(r=>{
+
+html+=`
+
+<div class="request">
+
+<b>👤 ${r.name}</b><br>
+
+SR ID:
+<b>${r.sr}</b><br>
+
+<span class="small">
+${r.time}
+</span>
+
+<br><br>
+
+<span class="badge">
+⏳ PENDING
+</span>
+
+<div class="actions">
+
+<button
+class="green"
+onclick="approveReset(${r.id})">
+✅ APPROVE
+</button>
+
+<button
+class="red"
+onclick="rejectReset(${r.id})">
+❌ REJECT
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("resetRequests").innerHTML=html;
+
+}
+
+
+/* =====================================================
+APPROVE RESET
+===================================================== */
+
+function approveReset(id){
+
+let request=
+resetRequests.find(x=>x.id===id);
+
+if(!request)return;
+
+
+/*
+APPROVED রাখা হবে যাতে SR
+নতুন Password সেট করতে পারে।
+
+কিন্তু Admin Panel-এর Pending
+তালিকা থেকে সঙ্গে সঙ্গে চলে যাবে।
+*/
+
+request.status="APPROVED";
+request.approvedAt=new Date().toISOString();
+
+save();
+
+renderResetRequests();
+
+}
+
+
+/* =====================================================
+REJECT
+===================================================== */
+
+function rejectReset(id){
+
+let request=
+resetRequests.find(x=>x.id===id);
+
+if(!request)return;
+
+
+/*
+Rejected Request-ও Pending তালিকা
+থেকে সরিয়ে দেওয়া হবে।
+*/
+
+request.status="REJECTED";
+request.rejectedAt=new Date().toISOString();
+
+save();
+
+renderResetRequests();
+
+}
+
+
+/* =====================================================
+FINISH RESET
+===================================================== */
+
+function finishReset(){
+
+if(!approvedReset)return;
+
+let p=
+document.getElementById("newPassword").value;
+
+let c=
+document.getElementById("confirmPassword").value;
+
+if(p.length<4){
+
+showMsg(
+"resetMsg",
+"❌ Password কমপক্ষে ৪ অক্ষরের হতে হবে",
+false
+);
+
+return;
+
+}
+
+if(p!==c){
+
+showMsg(
+"resetMsg",
+"❌ Password মিলছে না",
+false
+);
+
+return;
+
+}
+
+accounts[
+approvedReset.sr
+].password=p;
+
+
+/*
+Password পরিবর্তন হয়ে গেলে
+approval request সম্পূর্ণ শেষ।
+*/
+
+approvedReset.status="COMPLETED";
+approvedReset.completedAt=
+new Date().toISOString();
+
+save();
+
+showMsg(
+"resetMsg",
+"✅ Password সফলভাবে পরিবর্তন হয়েছে।",
+true
+);
+
+setTimeout(
+closeReset,
+1200
+);
+
+}
+
+
+function closeReset(){
+
+document
+.getElementById("resetBox")
+.classList.add("hidden");
+
+document
+.getElementById("srLoginBox")
+.classList.remove("hidden");
+
+document.getElementById("newPassword").value="";
+document.getElementById("confirmPassword").value="";
+
+approvedReset=null;
+
+}
+
+
+/* =====================================================
+EVENTS
+===================================================== */
+
+document
+.getElementById("adminDate")
+.addEventListener(
+"change",
+renderAdmin
+);
+
+document
+.getElementById("srDate")
+.addEventListener(
+"change",
+renderSR
+);
+
+document
+.getElementById("sellProduct")
+.addEventListener(
+"change",
+updateAvailable
+);
+
+document
+.getElementById("returnProduct")
+.addEventListener(
+"change",
+updateReturnAvailable
+);
+
+document
+.getElementById("editSellProduct")
+.addEventListener(
+"change",
+function(){
+
+document.getElementById("editSellPrice").value=
+"৳"+products[this.value];
+
+}
+);
+
+
+/* =====================================================
+MESSAGE
+===================================================== */
+
+function showMsg(id,text,success){
+
+let el=document.getElementById(id);
+
+el.textContent=text;
+
+el.style.color=
+success
+?"#16a34a"
+:"#dc2626";
+
+}
+
+
+/* =====================================================
+START
+===================================================== */
+
+save();
 
 </script>
 
