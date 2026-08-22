@@ -2,3012 +2,3026 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>SelfGrow - Student Management</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<title>সাবিয়া টেলিকম - ব্যবসা ব্যবস্থাপনা</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+}
 
 body{
-    font-family:Arial,"Noto Sans Bengali",sans-serif;
-    background:#f3f6fb;
-    color:#202b3c;
+  margin:0;
+  font-family:"Noto Sans Bengali","SolaimanLipi",Arial,sans-serif;
+  background:#f7f7f7;
+  color:#222;
 }
 
-button,input,select{
-    font-family:inherit;
+button,input,select,textarea{
+  font:inherit;
 }
 
-button{cursor:pointer}
-
-.hidden{display:none!important}
-
-/* ================= HOME ================= */
-
-.home{
-    min-height:100vh;
-    background:
-    linear-gradient(180deg,#10182d 0,#25345c 35%,#f3f6fb 55%);
+button{
+  cursor:pointer;
+  border:0;
 }
 
-.topbar{
-    height:75px;
-    padding:12px 20px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    color:white;
+.app{
+  max-width:760px;
+  margin:auto;
+  background:#fff;
+  min-height:100vh;
+  padding-bottom:75px;
 }
 
-.logo{
-    width:48px;
-    height:48px;
-    border-radius:15px;
-    background:#fff;
-    color:#2879df;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:30px;
-    font-weight:900;
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:linear-gradient(135deg,#ffd83d,#ffca28);
+  padding:12px 15px 10px;
+  box-shadow:0 2px 8px #0002;
 }
 
-.top-actions{
-    display:flex;
-    gap:8px;
+.head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
-.top-btn{
-    border:0;
-    border-radius:25px;
-    padding:11px 16px;
-    font-size:14px;
-    font-weight:bold;
+.brand{
+  font-size:25px;
+  font-weight:700;
 }
 
-.admin-top{
-    background:#ffca28;
-    color:#222;
+.icons{
+  display:flex;
+  gap:7px;
 }
 
-.login-top{
-    background:white;
-    color:#222;
+.iconbtn{
+  background:transparent;
+  font-size:27px;
+  padding:4px;
 }
 
-.hero{
-    color:white;
-    padding:50px 20px 40px;
+.backup{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:#d22;
+  font-size:14px;
+  margin-top:4px;
 }
 
-.hero-inner{
-    max-width:1000px;
-    margin:auto;
+.backup button{
+  background:#fff;
+  border-radius:20px;
+  padding:8px 14px;
+  box-shadow:0 2px 8px #0002;
 }
 
-.hero h1{
-    font-size:40px;
-    max-width:650px;
-    line-height:1.2;
+/* MAIN */
+.container{
+  padding:12px;
 }
 
-.hero p{
-    margin-top:15px;
-    color:#d9e4ff;
-    font-size:18px;
-}
-
-.hero-card{
-    margin-top:30px;
-    min-height:200px;
-    border-radius:30px;
-    padding:30px;
-    display:flex;
-    align-items:center;
-    background:linear-gradient(135deg,#ff7e9d,#ffb5c3);
-}
-
-.hero-card h2{
-    font-size:32px;
-}
-
-.hero-card p{
-    color:white;
-}
-
-.section{
-    max-width:1000px;
-    margin:auto;
-    padding:20px;
-}
-
-.section-title{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:18px;
-}
-
-.products{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-}
-
-.product{
-    background:white;
-    padding:12px;
-    border-radius:22px;
-    box-shadow:0 5px 20px #0000000c;
-}
-
-.product-img{
-    height:150px;
-    border-radius:18px;
-    background:#e8efff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:60px;
-}
-
-.product h3{
-    padding:12px 5px 5px;
+.notice{
+  background:#eef8ff;
+  border:1px solid #388bd0;
+  border-radius:10px;
+  padding:12px;
+  text-align:center;
+  color:#2264a0;
+  margin-bottom:12px;
 }
 
 .stats{
-    margin-top:25px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
+  border:1px solid #ddd;
+  border-radius:14px;
+  padding:10px;
+  margin-bottom:14px;
+}
+
+.statgrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  text-align:center;
 }
 
 .stat{
-    background:white;
-    border-radius:20px;
-    padding:20px 10px;
-    text-align:center;
-    box-shadow:0 5px 20px #0000000c;
+  padding:8px;
+  border-right:1px solid #ddd;
 }
 
-.stat strong{
-    display:block;
-    font-size:27px;
-    margin-bottom:5px;
+.stat:last-child{
+  border:0;
 }
 
-
-/* ================= MODAL ================= */
-
-.overlay{
-    position:fixed;
-    inset:0;
-    background:#0008;
-    z-index:1000;
-    overflow:auto;
-    padding:20px;
+.stat b{
+  display:block;
+  font-size:19px;
+  color:#198754;
 }
 
-.auth-box{
-    max-width:500px;
-    margin:30px auto;
-    background:white;
-    border-radius:28px;
-    padding:25px;
-    box-shadow:0 15px 50px #0005;
+.stat small{
+  color:#555;
 }
 
-.close{
-    float:right;
-    border:0;
-    background:#eee;
-    width:35px;
-    height:35px;
-    border-radius:50%;
-    font-size:20px;
+.banner{
+  background:linear-gradient(90deg,#fff2bd,#f5e4b5);
+  border-radius:12px;
+  padding:13px;
+  text-align:center;
+  font-size:20px;
+  font-weight:700;
+  margin:12px 0;
 }
 
-.auth-logo{
-    width:60px;
-    height:60px;
-    margin:0 auto 12px;
-    border-radius:18px;
-    background:#e5efff;
-    color:#2879df;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:36px;
-    font-weight:bold;
+/* SECTION */
+.section{
+  border:1px solid #ddd;
+  border-radius:14px;
+  margin:12px 0;
+  overflow:hidden;
+  background:#fff;
 }
 
-.auth-box h2{
-    text-align:center;
-    margin-bottom:22px;
+.section h3{
+  margin:0;
+  padding:11px 13px;
+  border-bottom:1px solid #ddd;
+  font-size:18px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:2px;
+  padding:8px;
+}
+
+.tile{
+  background:#fafafa;
+  border-radius:10px;
+  padding:12px 4px;
+  text-align:center;
+  min-height:88px;
+  color:#26384d;
+}
+
+.tile .ico{
+  font-size:31px;
+  display:block;
+  margin-bottom:5px;
+}
+
+.tile:hover{
+  background:#fff4ce;
+}
+
+/* PAGES */
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+.card{
+  border:1px solid #ddd;
+  border-radius:14px;
+  padding:14px;
+  margin:10px 0;
+  background:#fff;
+}
+
+.formgrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
 }
 
 .field{
-    margin-bottom:15px;
-}
-
-.field label{
-    display:block;
-    font-weight:bold;
-    margin-bottom:7px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
 }
 
 .field input,
-.field select{
-    width:100%;
-    padding:14px;
-    border:1px solid #ddd;
-    border-radius:13px;
-    font-size:16px;
-    outline:none;
-}
-
-.field input:focus,
-.field select:focus{
-    border-color:#3284eb;
+.field select,
+.field textarea{
+  border:1px solid #ccc;
+  border-radius:9px;
+  padding:10px;
+  background:#fff;
 }
 
 .primary{
-    width:100%;
-    padding:15px;
-    border:0;
-    border-radius:14px;
-    background:#161b25;
-    color:white;
-    font-size:17px;
-    font-weight:bold;
+  background:#1769d5;
+  color:#fff;
+  border-radius:9px;
+  padding:10px 15px;
 }
 
-.secondary{
-    width:100%;
-    padding:13px;
-    border:0;
-    border-radius:13px;
-    background:#e9f1ff;
-    color:#1767ca;
-    font-weight:bold;
-    margin-top:10px;
+.danger{
+  background:#dc3545;
+  color:#fff;
+  border-radius:9px;
+  padding:8px 12px;
 }
 
-
-/* ================= DASHBOARD ================= */
-
-.dashboard{
-    min-height:100vh;
-    background:#f3f6fb;
+.success{
+  background:#198754;
+  color:#fff;
+  border-radius:9px;
+  padding:8px 12px;
 }
 
-.dash-head{
-    padding:25px 20px;
-    color:white;
-    background:linear-gradient(135deg,#172f9e,#7545db);
-    border-radius:0 0 28px 28px;
+.muted{
+  color:#777;
 }
 
-.dash-container{
-    max-width:1100px;
-    margin:auto;
-    padding:20px;
+.row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
 }
 
-.balance{
-    background:white;
-    padding:20px;
-    border-radius:20px;
-    margin-bottom:18px;
-    box-shadow:0 4px 18px #0000000d;
+.actions{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:10px;
 }
 
-.balance strong{
-    color:#2175dd;
-    font-size:30px;
+.empty{
+  text-align:center;
+  padding:25px;
+  color:#777;
 }
 
-.menu-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    margin-bottom:20px;
+.pill{
+  padding:4px 8px;
+  border-radius:12px;
+  background:#eef5ff;
+  color:#1769d5;
 }
 
-.menu{
-    background:white;
-    border:0;
-    padding:18px 8px;
-    border-radius:18px;
-    box-shadow:0 4px 18px #0000000b;
-    font-weight:bold;
+.money{
+  font-weight:700;
+  color:#198754;
 }
 
-.menu-icon{
-    display:block;
-    font-size:28px;
-    margin-bottom:7px;
-}
-
-.panel{
-    background:white;
-    padding:20px;
-    border-radius:20px;
-    margin-bottom:18px;
-    box-shadow:0 4px 18px #0000000b;
-}
-
-.panel h3{
-    margin-bottom:18px;
-}
-
-.table-wrap{
-    overflow:auto;
-}
-
-table{
-    width:100%;
-    min-width:750px;
-    border-collapse:collapse;
-}
-
-th,td{
-    padding:11px;
-    border-bottom:1px solid #eee;
-    text-align:left;
-}
-
-th{
-    background:#f3f6fb;
-}
-
-.badge{
-    display:inline-block;
-    padding:5px 10px;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:bold;
-}
-
-.active{
-    background:#d9f7e5;
-    color:#087e43;
-}
-
-.inactive{
-    background:#ffe0e0;
-    color:#c20f0f;
-}
-
-.pending{
-    background:#fff0c8;
-    color:#8b6500;
-}
-
-.action{
-    border:0;
-    padding:7px 10px;
-    border-radius:8px;
-    margin:2px;
-}
-
-.green{
-    background:#d8f7e4;
-    color:#087b42;
-}
-
-.red{
-    background:#ffe0e0;
-    color:#c20f0f;
-}
-
-.blue{
-    background:#e0edff;
-    color:#1769cb;
-}
-
-.yellow{
-    background:#fff0c8;
-    color:#8a6500;
-}
-
-
-/* ================= ADMIN ================= */
-
-.admin-cards{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    margin-bottom:18px;
-}
-
-.admin-card{
-    background:white;
-    border-radius:18px;
-    padding:18px;
-    box-shadow:0 4px 15px #0000000b;
-}
-
-.admin-card strong{
-    display:block;
-    font-size:27px;
-    margin-top:7px;
-    color:#246fd1;
-}
-
-.toggle-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-}
-
-.toggle{
-    width:62px;
-    height:34px;
-    border:0;
-    border-radius:30px;
-    background:#bbb;
-    position:relative;
-}
-
-.toggle span{
-    position:absolute;
-    width:27px;
-    height:27px;
-    background:white;
-    border-radius:50%;
-    top:3.5px;
-    left:4px;
-    transition:.2s;
-}
-
-.toggle.on{
-    background:#16ae67;
-}
-
-.toggle.on span{
-    left:31px;
-}
-
-
-/* ================= BOTTOM ================= */
-
+/* BOTTOM */
 .bottom{
-    position:fixed;
-    left:0;
-    right:0;
-    bottom:0;
-    height:62px;
-    background:white;
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-    box-shadow:0 -3px 15px #0002;
-    z-index:500;
+  position:fixed;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(760px,100%);
+  background:#fff;
+  border-top:1px solid #ddd;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  z-index:30;
 }
 
 .bottom button{
-    border:0;
-    background:none;
-    font-size:12px;
+  background:#fff;
+  padding:8px;
+  color:#777;
+}
+
+.bottom button.active{
+  color:#111;
+  border-top:4px solid #ffca28;
 }
 
 .bottom span{
-    display:block;
-    font-size:23px;
+  display:block;
+  font-size:23px;
 }
 
+/* MOBILE */
+@media(max-width:480px){
 
-@media(max-width:700px){
+  .grid{
+    grid-template-columns:repeat(4,1fr);
+  }
 
-    .top-actions{
-        gap:5px;
-    }
+  .tile{
+    font-size:13px;
+  }
 
-    .top-btn{
-        padding:9px 10px;
-        font-size:12px;
-    }
+  .formgrid{
+    grid-template-columns:1fr;
+  }
 
-    .hero h1{
-        font-size:30px;
-    }
-
-    .hero-card h2{
-        font-size:25px;
-    }
-
-    .stats{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .admin-cards{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .menu-grid{
-        grid-template-columns:repeat(4,1fr);
-    }
-
-    .menu{
-        font-size:11px;
-        padding:12px 4px;
-    }
-
-    .menu-icon{
-        font-size:23px;
-    }
-
-}
-
-@media(max-width:450px){
-
-    .logo{
-        width:42px;
-        height:42px;
-    }
-
-    .products{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .product-img{
-        height:110px;
-        font-size:45px;
-    }
-
-    .product h3{
-        font-size:15px;
-    }
-
-    .auth-box{
-        padding:20px;
-        margin:15px auto;
-    }
-
+  .brand{
+    font-size:22px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<div class="app">
 
-<!-- =====================================================
-HOME
-===================================================== -->
+<!-- HEADER -->
+<header>
 
-<div id="home" class="home">
+  <div class="head">
 
-    <div class="topbar">
+    <div class="brand">
+      সাবিয়া টেলিকম
+    </div>
 
-        <div class="logo">S</div>
+    <div class="icons">
 
-        <div class="top-actions">
+      <button
+        class="iconbtn"
+        onclick="alert('কোনো নতুন নোটিফিকেশন নেই')">
+        🔔
+      </button>
 
-            <!-- NEW ADMIN BUTTON -->
+      <button
+        class="iconbtn"
+        onclick="showPage('settings')">
+        ⚙️
+      </button>
 
-            <button class="top-btn admin-top"
-                    onclick="openAdminLogin()">
-                🔐 Admin Panel
-            </button>
+    </div>
 
-            <button class="top-btn login-top"
-                    onclick="openRoleLogin()">
-                👤 Login
-            </button>
+  </div>
 
-        </div>
+  <div class="backup">
+
+    সর্বশেষ ব্যাকআপ:
+    <span id="backupStatus">
+      ডাটা ব্যাকআপ হয়নি
+    </span>
+
+    <button onclick="backupData()">
+      ডাটা ব্যাকআপ
+    </button>
+
+  </div>
+
+</header>
+
+
+<div class="container">
+
+<!-- ================= HOME ================= -->
+
+<div id="dashboard" class="page active">
+
+  <div class="notice">
+    ◉ ডেমো শপ দেখুন &nbsp; ×
+  </div>
+
+
+  <!-- STATS -->
+
+  <div class="stats">
+
+    <div class="statgrid">
+
+      <div class="stat">
+        <small>ব্যালেন্স</small>
+        <b id="balance">৳০</b>
+      </div>
+
+      <div class="stat">
+        <small>আজকের বিক্রি</small>
+        <b id="todaySales">৳০</b>
+      </div>
+
+      <div class="stat">
+        <small>স্টক সংখ্যা</small>
+        <b id="stockCount">০</b>
+      </div>
 
     </div>
 
 
-    <div class="hero">
+    <div
+      class="statgrid"
+      style="margin-top:8px">
 
-        <div class="hero-inner">
+      <div class="stat">
+        <small>আজকের ব্যয়</small>
+        <b
+          id="todayExpense"
+          style="color:#d9534f">
+          ৳০
+        </b>
+      </div>
 
-            <h1>
-                Grow your skill for next generation
-            </h1>
+      <div class="stat">
+        <small>বাকি</small>
+        <b
+          id="dueTotal"
+          style="color:#d9534f">
+          ৳০
+        </b>
+      </div>
 
-            <p>
-                Student • Counselor • Trainer • Team Leader
-            </p>
-
-
-            <div class="hero-card">
-
-                <div>
-
-                    <h2>
-                        Learn • Work • Earn
-                    </h2>
-
-                    <p>
-                        Student ও Mentor Management Platform
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
+      <div class="stat">
+        <small>পুঁজি</small>
+        <b id="capitalTotal">
+          ৳০
+        </b>
+      </div>
 
     </div>
 
-
-    <div class="section">
-
-        <div class="section-title">
-
-            <h2>
-                Popular Products
-            </h2>
-
-            <span>
-                More
-            </span>
-
-        </div>
+  </div>
 
 
-        <div class="products">
-
-            <div class="product">
-
-                <div class="product-img">
-                    👕
-                </div>
-
-                <h3>
-                    টি-শার্ট
-                </h3>
-
-            </div>
+  <div class="banner">
+    🛒 অনলাইন শপ অর্ডার ম্যানেজমেন্ট
+    <br>
+    <small>এখন খুব সহজেই</small>
+  </div>
 
 
-            <div class="product">
+  <!-- BUY SELL -->
 
-                <div class="product-img">
-                    👔
-                </div>
+  <div class="section">
 
-                <h3>
-                    পাঞ্জাবি
-                </h3>
+    <h3>
+      কেনা / বেচা
+    </h3>
 
-            </div>
+    <div class="grid">
 
-        </div>
+      <button
+        class="tile"
+        onclick="showPage('purchase')">
+
+        <span class="ico">
+          📦
+        </span>
+
+        কেনা
+
+      </button>
 
 
-        <div class="stats">
+      <button
+        class="tile"
+        onclick="showPage('sale')">
 
-            <div class="stat">
-                <strong>100+</strong>
-                Product
-            </div>
+        <span class="ico">
+          🛍️
+        </span>
 
-            <div class="stat">
-                <strong>400+</strong>
-                Delivery
-            </div>
+        বেচা
 
-            <div class="stat">
-                <strong id="homeStudents">
-                    0
-                </strong>
-                Student
-            </div>
-
-            <div class="stat">
-                <strong id="homeMentors">
-                    0
-                </strong>
-                Mentor
-            </div>
-
-        </div>
+      </button>
 
     </div>
+
+  </div>
+
+
+  <!-- KHATA -->
+
+  <div class="section">
+
+    <h3>
+      খাতা সমূহ
+    </h3>
+
+    <div class="grid">
+
+      <button
+        class="tile"
+        onclick="showPage('purchase')">
+
+        <span class="ico">🧾</span>
+
+        কেনার খাতা
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="showPage('sale')">
+
+        <span class="ico">🧮</span>
+
+        বেচার খাতা
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="showPage('due')">
+
+        <span class="ico">📒</span>
+
+        বাকির খাতা
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="showPage('expense')">
+
+        <span class="ico">💵</span>
+
+        খরচের খাতা
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- BUSINESS -->
+
+  <div class="section">
+
+    <h3>
+      আপনার ব্যবসার জন্য
+    </h3>
+
+    <div class="grid">
+
+      <button
+        class="tile"
+        onclick="showPage('contacts')">
+
+        <span class="ico">👥</span>
+
+        যোগাযোগ
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="showPage('products')">
+
+        <span class="ico">📦</span>
+
+        প্রোডাক্ট লিস্ট
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="showPage('stock')">
+
+        <span class="ico">🏪</span>
+
+        স্টকের হিসাব
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="showPage('reports')">
+
+        <span class="ico">📊</span>
+
+        ব্যবসার রিপোর্ট
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- OTHER -->
+
+  <div class="section">
+
+    <h3>
+      অন্যান্য
+    </h3>
+
+    <div class="grid">
+
+
+      <button
+        class="tile"
+        onclick="showPage('cash')">
+
+        <span class="ico">🧮</span>
+
+        ক্যাশবক্স
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="showPage('settings')">
+
+        <span class="ico">👨‍💼</span>
+
+        অ্যাপ অ্যাক্সেস
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="showPage('marketing')">
+
+        <span class="ico">📱</span>
+
+        মার্কেটিং
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="showPage('topup')">
+
+        <span class="ico">💰</span>
+
+        টপ আপ
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="showPage('warranty')">
+
+        <span class="ico">📦</span>
+
+        ওয়ারেন্টি
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="showPage('expiry')">
+
+        <span class="ico">📅</span>
+
+        মেয়াদোত্তীর্ণ পণ্য
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="window.print()">
+
+        <span class="ico">🖨️</span>
+
+        প্রিন্টার
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="showPage('capital')">
+
+        <span class="ico">💳</span>
+
+        পুঁজি
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="alert('অ্যাপ ট্রেনিং: মেনুগুলো ব্যবহার করে দেখুন।')">
+
+        <span class="ico">🧑‍🏫</span>
+
+        অ্যাপ ট্রেনিং
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="alert('গ্রোথ পার্টনার ফিচার পরে যুক্ত করা যাবে।')">
+
+        <span class="ico">🤝</span>
+
+        গ্রোথ পার্টনার
+
+      </button>
+
+
+      <button
+        class="tile"
+        onclick="showPage('recycle')">
+
+        <span class="ico">♻️</span>
+
+        রিসাইকেল বিন
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="row">
+
+      <span>
+        💬 যেকোনো প্রয়োজনে এক্সপার্টের কাছ থেকে সহায়তা নিন
+      </span>
+
+      <button
+        class="primary"
+        onclick="showPage('chat')">
+
+        লাইভ চ্যাট
+
+      </button>
+
+    </div>
+
+  </div>
 
 </div>
 
 
+<!-- ================= PRODUCT ================= -->
 
-<!-- =====================================================
-ROLE LOGIN
-===================================================== -->
+<div id="products" class="page">
 
-<div id="roleModal"
-     class="overlay hidden">
+  <div class="row">
 
-    <div class="auth-box">
+    <h2>
+      প্রোডাক্ট লিস্ট
+    </h2>
 
-        <button class="close"
-                onclick="closeModal('roleModal')">
-            ×
-        </button>
+    <button
+      class="primary"
+      onclick="openProductForm()">
 
-        <div class="auth-logo">
-            S
-        </div>
+      ＋ নতুন প্রোডাক্ট
 
-        <h2>
-            Login
-        </h2>
+    </button>
+
+  </div>
 
 
-        <button class="primary"
-                onclick="openStudentLogin()">
-            👨‍🎓 Student Login
-        </button>
+  <div
+    id="productForm"
+    class="card"
+    style="display:none">
+
+    <h3 id="productFormTitle">
+      নতুন প্রোডাক্ট এড করুন
+    </h3>
 
 
-        <button class="secondary"
-                onclick="openMentorLogin()">
-            👨‍🏫 Mentor Login
-        </button>
+    <input
+      type="hidden"
+      id="editProductId">
 
 
-        <button class="secondary"
-                onclick="openAdminLogin()">
-            🔐 Admin Panel
-        </button>
+    <div class="formgrid">
+
+      <div class="field">
+
+        <label>
+          প্রোডাক্ট নাম
+        </label>
+
+        <input
+          id="pName"
+          placeholder="যেমন: GP 20GB">
+
+      </div>
 
 
-        <button class="secondary"
-                onclick="openStudentRegister()">
-            📝 Student Registration
-        </button>
+      <div class="field">
+
+        <label>
+          ক্যাটাগরি
+        </label>
+
+        <input
+          id="pCategory"
+          placeholder="সিম/কিট/অন্যান্য">
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          ক্রয়মূল্য
+        </label>
+
+        <input
+          id="pBuy"
+          type="number"
+          min="0">
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          বিক্রয়মূল্য
+        </label>
+
+        <input
+          id="pSell"
+          type="number"
+          min="0">
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          প্রাথমিক স্টক
+        </label>
+
+        <input
+          id="pStock"
+          type="number"
+          min="0">
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          মেয়াদ শেষের তারিখ
+        </label>
+
+        <input
+          id="pExpiry"
+          type="date">
+
+      </div>
 
     </div>
+
+
+    <div class="actions">
+
+      <button
+        class="primary"
+        onclick="saveProduct()">
+
+        সংরক্ষণ
+
+      </button>
+
+      <button
+        onclick="closeProductForm()">
+
+        বাতিল
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <input
+      id="productSearch"
+      oninput="renderProducts()"
+      placeholder="🔎 প্রোডাক্ট খুঁজুন..."
+      style="width:100%;padding:10px;border:1px solid #ccc;border-radius:9px">
+
+  </div>
+
+
+  <div id="productList"></div>
 
 </div>
 
 
+<!-- ================= PURCHASE ================= -->
 
-<!-- =====================================================
-LOGIN
-===================================================== -->
+<div id="purchase" class="page">
 
-<div id="loginModal"
-     class="overlay hidden">
-
-    <div class="auth-box">
-
-        <button class="close"
-                onclick="closeModal('loginModal')">
-            ×
-        </button>
-
-        <div class="auth-logo">
-            S
-        </div>
-
-        <h2 id="loginTitle">
-            Login
-        </h2>
+  <h2>
+    কেনার খাতা
+  </h2>
 
 
-        <div id="mentorRoleField"
-             class="field hidden">
+  <div class="card">
 
-            <label>
-                Mentor Role
-            </label>
-
-            <select id="mentorRole">
-
-                <option>
-                    Counselor
-                </option>
-
-                <option>
-                    Trainer
-                </option>
-
-                <option>
-                    Team Leader
-                </option>
-
-                <option>
-                    Senior Team Leader
-                </option>
-
-                <option>
-                    Teacher
-                </option>
-
-                <option>
-                    Checker
-                </option>
-
-                <option>
-                    Accountant
-                </option>
-
-                <option>
-                    Controller
-                </option>
-
-                <option>
-                    Telecaller
-                </option>
-
-                <option>
-                    Consultant
-                </option>
-
-            </select>
-
-        </div>
+    <div class="formgrid">
 
 
-        <div class="field">
+      <div class="field">
 
-            <label>
-                Phone / ID
-            </label>
+        <label>
+          প্রোডাক্ট
+        </label>
 
-            <input id="loginPhone"
-                   placeholder="Phone অথবা ID">
+        <select id="buyProduct"></select>
 
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                Password
-            </label>
-
-            <input id="loginPassword"
-                   type="password"
-                   placeholder="Password">
-
-        </div>
+      </div>
 
 
-        <button class="primary"
-                onclick="doLogin()">
-            Login
-        </button>
+      <div class="field">
+
+        <label>
+          পরিমাণ
+        </label>
+
+        <input
+          id="buyQty"
+          type="number"
+          min="1"
+          value="1">
+
+      </div>
 
 
-        <button id="registerButton"
-                class="secondary"
-                onclick="openStudentRegister()">
-            Student Registration
-        </button>
+      <div class="field">
+
+        <label>
+          প্রতি পিস ক্রয়মূল্য
+        </label>
+
+        <input
+          id="buyPrice"
+          type="number"
+          min="0">
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          সরবরাহকারী
+        </label>
+
+        <input
+          id="supplier"
+          placeholder="নাম">
+
+      </div>
 
     </div>
+
+
+    <div class="actions">
+
+      <button
+        class="primary"
+        onclick="addPurchase()">
+
+        কেনা সংরক্ষণ
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div id="purchaseList"></div>
 
 </div>
 
 
+<!-- ================= SALE ================= -->
 
-<!-- =====================================================
-STUDENT REGISTRATION
-===================================================== -->
+<div id="sale" class="page">
 
-<div id="registerModal"
-     class="overlay hidden">
-
-    <div class="auth-box">
-
-        <button class="close"
-                onclick="closeModal('registerModal')">
-            ×
-        </button>
-
-        <div class="auth-logo">
-            S
-        </div>
-
-        <h2>
-            Student Registration
-        </h2>
+  <h2>
+    বেচার খাতা
+  </h2>
 
 
-        <div class="field">
+  <div class="card">
 
-            <label>
-                Student Name
-            </label>
-
-            <input id="regName"
-                   placeholder="আপনার নাম">
-
-        </div>
+    <div class="formgrid">
 
 
-        <div class="field">
+      <div class="field">
 
-            <label>
-                WhatsApp Number
-            </label>
+        <label>
+          প্রোডাক্ট
+        </label>
 
-            <input id="regWhatsapp"
-                   type="tel"
-                   placeholder="01XXXXXXXXX">
+        <select id="saleProduct"></select>
 
-        </div>
+      </div>
 
 
-        <div class="field">
+      <div class="field">
 
-            <label>
-                Email
-            </label>
+        <label>
+          পরিমাণ
+        </label>
 
-            <input id="regEmail"
-                   type="email"
-                   placeholder="Email">
+        <input
+          id="saleQty"
+          type="number"
+          min="1"
+          value="1">
 
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                Password
-            </label>
-
-            <input id="regPassword"
-                   type="password"
-                   placeholder="Password">
-
-        </div>
+      </div>
 
 
-        <!-- ONLY REFERRER -->
+      <div class="field">
 
-        <div class="field">
+        <label>
+          বিক্রয়মূল্য
+        </label>
 
-            <label>
-                যিনি Student এনেছেন তার ID
-            </label>
+        <input
+          id="salePrice"
+          type="number"
+          min="0">
 
-            <select id="regReferrer">
-
-                <option value="">
-                    Select Referral ID
-                </option>
-
-            </select>
-
-        </div>
+      </div>
 
 
-        <button class="primary"
-                onclick="registerStudent()">
-            Register Student
-        </button>
+      <div class="field">
+
+        <label>
+          কাস্টমারের নাম
+        </label>
+
+        <input
+          id="customer"
+          placeholder="নাম">
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          পেমেন্ট
+        </label>
+
+        <select id="salePayment">
+
+          <option>
+            নগদ
+          </option>
+
+          <option>
+            বাকি
+          </option>
+
+          <option>
+            bKash
+          </option>
+
+          <option>
+            Nagad
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          মোবাইল
+        </label>
+
+        <input
+          id="customerPhone"
+          inputmode="tel">
+
+      </div>
 
     </div>
+
+
+    <div class="actions">
+
+      <button
+        class="primary"
+        onclick="addSale()">
+
+        বিক্রি সংরক্ষণ
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div id="saleList"></div>
 
 </div>
 
 
+<!-- ================= DUE ================= -->
 
-<!-- =====================================================
-STUDENT DASHBOARD
-===================================================== -->
+<div id="due" class="page">
 
-<div id="studentDashboard"
-     class="dashboard hidden">
+  <h2>
+    বাকির খাতা
+  </h2>
 
-    <div class="dash-head">
-
-        <h2 id="studentWelcome">
-            Student
-        </h2>
-
-        <p id="studentIdDisplay">
-        </p>
-
-    </div>
-
-
-    <div class="dash-container">
-
-        <div class="balance">
-
-            <p>
-                Account Status
-            </p>
-
-            <h2 id="studentStatus">
-            </h2>
-
-            <p style="margin-top:10px">
-                Student ID:
-                <strong id="studentID">
-                </strong>
-            </p>
-
-        </div>
-
-
-        <div class="menu-grid">
-
-            <button class="menu">
-                <span class="menu-icon">💳</span>
-                Withdraw
-            </button>
-
-            <button class="menu">
-                <span class="menu-icon">📦</span>
-                Product
-            </button>
-
-            <button class="menu">
-                <span class="menu-icon">📣</span>
-                Affiliate
-            </button>
-
-            <button class="menu">
-                <span class="menu-icon">⭐</span>
-                P.Point
-            </button>
-
-            <button class="menu">
-                <span class="menu-icon">💰</span>
-                TopUp
-            </button>
-
-            <button class="menu">
-                <span class="menu-icon">🎓</span>
-                Training
-            </button>
-
-            <button class="menu">
-                <span class="menu-icon">🎬</span>
-                Video
-            </button>
-
-            <button class="menu">
-                <span class="menu-icon">💼</span>
-                Work
-            </button>
-
-        </div>
-
-
-        <div class="panel">
-
-            <h3>
-                Account Activation
-            </h3>
-
-            <p>
-                Activation Fee:
-                <strong id="studentPayAmount">
-                    ৳630
-                </strong>
-            </p>
-
-            <p style="margin:12px 0">
-                Payment Number:
-                <strong id="studentPayNumber">
-                    01955333586
-                </strong>
-            </p>
-
-            <button class="primary"
-                    onclick="openPayment()">
-                💳 Pay & Activate
-            </button>
-
-        </div>
-
-
-        <button class="primary"
-                onclick="logout()">
-            Logout
-        </button>
-
-    </div>
+  <div id="dueList"></div>
 
 </div>
 
 
+<!-- ================= EXPENSE ================= -->
 
-<!-- =====================================================
-MENTOR DASHBOARD
-===================================================== -->
+<div id="expense" class="page">
 
-<div id="mentorDashboard"
-     class="dashboard hidden">
+  <h2>
+    খরচের খাতা
+  </h2>
 
-    <div class="dash-head">
 
-        <h2 id="mentorName">
-            Mentor
-        </h2>
+  <div class="card">
 
-        <p id="mentorRole">
-        </p>
+    <div class="formgrid">
+
+      <div class="field">
+
+        <label>
+          খরচের কারণ
+        </label>
+
+        <input
+          id="expenseName"
+          placeholder="যেমন: দোকান ভাড়া">
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          টাকা
+        </label>
+
+        <input
+          id="expenseAmount"
+          type="number"
+          min="0">
+
+      </div>
+
+    </div>
+
+
+    <div class="actions">
+
+      <button
+        class="primary"
+        onclick="addExpense()">
+
+        খরচ সংরক্ষণ
+
+      </button>
 
     </div>
 
-
-    <div class="dash-container">
-
-        <div class="balance">
-
-            <p>
-                Available Balance
-            </p>
-
-            <strong id="mentorBalance">
-                ৳0
-            </strong>
-
-        </div>
+  </div>
 
 
-        <div class="menu-grid">
-
-            <button class="menu">
-                <span class="menu-icon">👨‍🎓</span>
-                My Students
-            </button>
-
-            <button class="menu">
-                <span class="menu-icon">💰</span>
-                Commission
-            </button>
-
-            <button class="menu">
-                <span class="menu-icon">📲</span>
-                WhatsApp
-            </button>
-
-            <button class="menu">
-                <span class="menu-icon">💳</span>
-                Withdraw
-            </button>
-
-        </div>
-
-
-        <div class="panel">
-
-            <h3>
-                My Students
-            </h3>
-
-            <div class="table-wrap">
-
-                <table>
-
-                    <thead>
-
-                        <tr>
-                            <th>Student ID</th>
-                            <th>Name</th>
-                            <th>WhatsApp</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-
-                    </thead>
-
-                    <tbody id="mentorStudents">
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </div>
-
-
-        <button class="primary"
-                onclick="logout()">
-            Logout
-        </button>
-
-    </div>
+  <div id="expenseList"></div>
 
 </div>
 
 
+<!-- ================= STOCK ================= -->
 
-<!-- =====================================================
-ADMIN DASHBOARD
-===================================================== -->
+<div id="stock" class="page">
 
-<div id="adminDashboard"
-     class="dashboard hidden">
+  <h2>
+    স্টকের হিসাব
+  </h2>
 
-    <div class="dash-head">
-
-        <h2>
-            🔐 Admin Panel
-        </h2>
-
-        <p>
-            Student & Mentor Management
-        </p>
-
-    </div>
-
-
-    <div class="dash-container">
-
-
-        <div class="admin-cards">
-
-            <div class="admin-card">
-                Students
-                <strong id="adminStudents">
-                    0
-                </strong>
-            </div>
-
-            <div class="admin-card">
-                Active
-                <strong id="adminActive">
-                    0
-                </strong>
-            </div>
-
-            <div class="admin-card">
-                Inactive
-                <strong id="adminInactive">
-                    0
-                </strong>
-            </div>
-
-            <div class="admin-card">
-                Mentors
-                <strong id="adminMentors">
-                    0
-                </strong>
-            </div>
-
-        </div>
-
-
-
-        <!-- VACANCY -->
-
-        <div class="panel">
-
-            <h3>
-                Student Registration Vacancy
-            </h3>
-
-            <div class="toggle-row">
-
-                <div>
-
-                    <strong id="vacancyText">
-                        Registration Open
-                    </strong>
-
-                    <p style="margin-top:5px">
-                        Student Registration চালু/বন্ধ করুন।
-                    </p>
-
-                </div>
-
-
-                <button id="vacancyToggle"
-                        class="toggle on"
-                        onclick="toggleVacancy()">
-
-                    <span></span>
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- PAYMENT SETTINGS -->
-
-        <div class="panel">
-
-            <h3>
-                Payment Settings
-            </h3>
-
-
-            <div class="field">
-
-                <label>
-                    bKash / Nagad / Rocket Number
-                </label>
-
-                <input id="paymentNumber">
-
-            </div>
-
-
-            <div class="field">
-
-                <label>
-                    Student Activation Fee
-                </label>
-
-                <input id="paymentAmount"
-                       type="number">
-
-            </div>
-
-
-            <button class="primary"
-                    onclick="savePaymentSettings()">
-                Save Payment Settings
-            </button>
-
-        </div>
-
-
-
-        <!-- COMMISSION -->
-
-        <div class="panel">
-
-            <h3>
-                Commission Settings
-            </h3>
-
-
-            <div class="field">
-
-                <label>
-                    Student Referrer Commission
-                </label>
-
-                <input id="commissionStudent"
-                       type="number">
-
-            </div>
-
-
-            <div class="field">
-
-                <label>
-                    Counselor Commission
-                </label>
-
-                <input id="commissionCounselor"
-                       type="number">
-
-            </div>
-
-
-            <div class="field">
-
-                <label>
-                    Trainer Commission
-                </label>
-
-                <input id="commissionTrainer"
-                       type="number">
-
-            </div>
-
-
-            <div class="field">
-
-                <label>
-                    Team Leader Commission
-                </label>
-
-                <input id="commissionTeam"
-                       type="number">
-
-            </div>
-
-
-            <button class="primary"
-                    onclick="saveCommission()">
-                Save Commission
-            </button>
-
-        </div>
-
-
-
-        <!-- CREATE MENTOR -->
-
-        <div class="panel">
-
-            <h3>
-                Create Mentor ID
-            </h3>
-
-
-            <div class="field">
-
-                <label>
-                    Name
-                </label>
-
-                <input id="newMentorName"
-                       placeholder="Mentor Name">
-
-            </div>
-
-
-            <div class="field">
-
-                <label>
-                    Phone
-                </label>
-
-                <input id="newMentorPhone"
-                       placeholder="01XXXXXXXXX">
-
-            </div>
-
-
-            <div class="field">
-
-                <label>
-                    Password
-                </label>
-
-                <input id="newMentorPassword"
-                       placeholder="Password">
-
-            </div>
-
-
-            <div class="field">
-
-                <label>
-                    Role
-                </label>
-
-                <select id="newMentorRole">
-
-                    <option>Counselor</option>
-                    <option>Trainer</option>
-                    <option>Team Leader</option>
-                    <option>Senior Team Leader</option>
-                    <option>Teacher</option>
-                    <option>Checker</option>
-                    <option>Accountant</option>
-                    <option>Controller</option>
-                    <option>Telecaller</option>
-                    <option>Consultant</option>
-
-                </select>
-
-            </div>
-
-
-            <button class="primary"
-                    onclick="createMentor()">
-                Create Mentor ID
-            </button>
-
-        </div>
-
-
-
-        <!-- STUDENT MANAGEMENT -->
-
-        <div class="panel">
-
-            <h3>
-                Student Management
-            </h3>
-
-
-            <div class="table-wrap">
-
-                <table>
-
-                    <thead>
-
-                        <tr>
-
-                            <th>Student ID</th>
-                            <th>Name</th>
-                            <th>WhatsApp</th>
-                            <th>Referrer</th>
-                            <th>Counselor</th>
-                            <th>Trainer</th>
-                            <th>Team Leader</th>
-                            <th>Status</th>
-                            <th>Action</th>
-
-                        </tr>
-
-                    </thead>
-
-
-                    <tbody id="adminStudentTable">
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- MENTOR MANAGEMENT -->
-
-        <div class="panel">
-
-            <h3>
-                Mentor Management
-            </h3>
-
-
-            <div class="table-wrap">
-
-                <table>
-
-                    <thead>
-
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Phone</th>
-                            <th>Role</th>
-                            <th>Balance</th>
-                        </tr>
-
-                    </thead>
-
-
-                    <tbody id="adminMentorTable">
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </div>
-
-
-        <button class="primary"
-                onclick="logout()">
-            Logout
-        </button>
-
-    </div>
+  <div id="stockList"></div>
 
 </div>
 
 
+<!-- ================= REPORT ================= -->
 
-<!-- =====================================================
-PAYMENT MODAL
-===================================================== -->
+<div id="reports" class="page">
 
-<div id="paymentModal"
-     class="overlay hidden">
+  <h2>
+    ব্যবসার রিপোর্ট
+  </h2>
 
-    <div class="auth-box">
-
-        <button class="close"
-                onclick="closeModal('paymentModal')">
-            ×
-        </button>
-
-        <h2>
-            💳 Payment
-        </h2>
-
-
-        <p style="line-height:1.8">
-
-            Payment Number:
-            <br>
-
-            <strong id="payNumber">
-                01955333586
-            </strong>
-
-            <br><br>
-
-            Amount:
-            <br>
-
-            <strong id="payAmount">
-                ৳630
-            </strong>
-
-        </p>
-
-
-        <div class="field"
-             style="margin-top:20px">
-
-            <label>
-                Transaction ID
-            </label>
-
-            <input id="transactionId"
-                   placeholder="TX123456">
-
-        </div>
-
-
-        <button class="primary"
-                onclick="submitPayment()">
-            Submit Payment
-        </button>
-
-    </div>
+  <div id="reportBox"></div>
 
 </div>
 
 
+<!-- ================= CASH ================= -->
 
-<!-- =====================================================
-BOTTOM
-===================================================== -->
+<div id="cash" class="page">
+
+  <h2>
+    ক্যাশবক্স
+  </h2>
+
+  <div class="card">
+
+    <h3>
+      বর্তমান হিসাব
+    </h3>
+
+    <p>
+      বিক্রি:
+      <b id="cashSales">৳০</b>
+    </p>
+
+    <p>
+      খরচ:
+      <b id="cashExpense">৳০</b>
+    </p>
+
+    <p>
+      নগদ ব্যালেন্স:
+      <b id="cashBalance">৳০</b>
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- ================= CAPITAL ================= -->
+
+<div id="capital" class="page">
+
+  <h2>
+    পুঁজি
+  </h2>
+
+
+  <div class="card">
+
+    <div class="field">
+
+      <label>
+        পুঁজির পরিমাণ
+      </label>
+
+      <input
+        id="capitalInput"
+        type="number">
+
+    </div>
+
+
+    <div class="actions">
+
+      <button
+        class="primary"
+        onclick="setCapital()">
+
+        সংরক্ষণ
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= CONTACT ================= -->
+
+<div id="contacts" class="page">
+
+  <h2>
+    যোগাযোগ
+  </h2>
+
+
+  <div class="card">
+
+    <p>
+      📞 কাস্টমার/সরবরাহকারীর যোগাযোগ
+    </p>
+
+
+    <input
+      id="contactName"
+      placeholder="নাম"
+      style="width:100%;padding:10px;margin:5px 0">
+
+
+    <input
+      id="contactPhone"
+      placeholder="মোবাইল"
+      style="width:100%;padding:10px">
+
+
+    <button
+      class="primary"
+      style="margin-top:8px"
+      onclick="addContact()">
+
+      যোগাযোগ সংরক্ষণ
+
+    </button>
+
+  </div>
+
+
+  <div id="contactList"></div>
+
+</div>
+
+
+<!-- ================= MARKETING ================= -->
+
+<div id="marketing" class="page">
+
+  <h2>
+    মার্কেটিং
+  </h2>
+
+
+  <div class="card">
+
+    <textarea
+      id="marketingText"
+      rows="5"
+      style="width:100%;padding:10px"
+      placeholder="মার্কেটিং মেসেজ লিখুন..."></textarea>
+
+
+    <button
+      class="primary"
+      onclick="shareMarketing()">
+
+      শেয়ার করুন
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= TOPUP ================= -->
+
+<div id="topup" class="page">
+
+  <h2>
+    টপ আপ
+  </h2>
+
+
+  <div class="card">
+
+    <p>
+      এটি ডেমো টপ-আপ মডিউল।
+    </p>
+
+
+    <input
+      placeholder="মোবাইল নম্বর"
+      style="width:100%;padding:10px;margin-bottom:8px">
+
+
+    <input
+      placeholder="টাকার পরিমাণ"
+      type="number"
+      style="width:100%;padding:10px">
+
+
+    <button
+      class="primary"
+      style="margin-top:8px"
+      onclick="alert('ডেমো: API যুক্ত করলে রিয়েল টপ-আপ হবে।')">
+
+      টপ আপ করুন
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= WARRANTY ================= -->
+
+<div id="warranty" class="page">
+
+  <h2>
+    ওয়ারেন্টি
+  </h2>
+
+
+  <div class="card">
+
+    <input
+      id="warrantyText"
+      placeholder="পণ্য/কাস্টমার/ওয়ারেন্টি তথ্য"
+      style="width:100%;padding:10px">
+
+
+    <button
+      class="primary"
+      style="margin-top:8px"
+      onclick="alert('ওয়ারেন্টি তথ্য সংরক্ষণের জন্য পরে ডাটাবেস যুক্ত করা যাবে।')">
+
+      সংরক্ষণ
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= EXPIRY ================= -->
+
+<div id="expiry" class="page">
+
+  <h2>
+    মেয়াদোত্তীর্ণ পণ্য
+  </h2>
+
+  <div id="expiryList"></div>
+
+</div>
+
+
+<!-- ================= RECYCLE ================= -->
+
+<div id="recycle" class="page">
+
+  <h2>
+    রিসাইকেল বিন
+  </h2>
+
+
+  <div class="card">
+
+    <p>
+      মুছে ফেলা তথ্যের জন্য এখানে স্থান রাখা হয়েছে।
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- ================= SETTINGS ================= -->
+
+<div id="settings" class="page">
+
+  <h2>
+    সেটিংস / অ্যাপ অ্যাক্সেস
+  </h2>
+
+
+  <div class="card">
+
+    <div class="field">
+
+      <label>
+        দোকানের নাম
+      </label>
+
+      <input
+        id="shopName"
+        value="সাবিয়া টেলিকম">
+
+    </div>
+
+
+    <div class="actions">
+
+      <button
+        class="primary"
+        onclick="saveSettings()">
+
+        সেটিংস সংরক্ষণ
+
+      </button>
+
+
+      <button
+        onclick="restoreDemo()">
+
+        ডেমো ডাটা রিসেট
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= CHAT ================= -->
+
+<div id="chat" class="page">
+
+  <h2>
+    লাইভ চ্যাট
+  </h2>
+
+
+  <div class="card">
+
+    <p>
+      💬 সহায়তার জন্য নিচে মেসেজ লিখুন।
+    </p>
+
+
+    <textarea
+      id="chatMsg"
+      rows="4"
+      style="width:100%;padding:10px"></textarea>
+
+
+    <button
+      class="primary"
+      onclick="alert('মেসেজ প্রস্তুত হয়েছে। বাস্তব চ্যাটের জন্য সার্ভার/API লাগবে।')">
+
+      মেসেজ পাঠান
+
+    </button>
+
+  </div>
+
+</div>
+
+</div>
+
+
+<!-- BOTTOM MENU -->
 
 <div class="bottom">
 
-    <button onclick="showHome()">
-        <span>⌂</span>
-        Home
-    </button>
+  <button onclick="showPage('products')">
 
-    <button>
-        <span>📣</span>
-        Share
-    </button>
+    <span>🏪</span>
 
-    <button>
-        <span>📦</span>
-        Claim
-    </button>
+    অনলাইন শপ
 
-    <button>
-        <span>✉</span>
-        Inbox
-    </button>
+  </button>
+
+
+  <button
+    class="active"
+    onclick="showPage('dashboard')">
+
+    <span>⌂</span>
+
+    হোম
+
+  </button>
+
+
+  <button onclick="showPage('capital')">
+
+    <span>৳+</span>
+
+    বাড়তি আয়
+
+  </button>
 
 </div>
 
+</div>
 
 
 <script>
 
-/* =====================================================
-DATA
-===================================================== */
-
-let students =
-JSON.parse(localStorage.getItem("students") || "[]");
-
-let mentors =
-JSON.parse(localStorage.getItem("mentors") || "[]");
-
-let settings =
-JSON.parse(localStorage.getItem("settings") || "{}");
-
-let currentUser=null;
-let loginType="";
+const KEY="sabia_business_v1";
 
 
-/* DEFAULT SETTINGS */
-
-if(settings.vacancy===undefined)
-    settings.vacancy=true;
-
-if(!settings.paymentNumber)
-    settings.paymentNumber="01955333586";
-
-if(!settings.paymentAmount)
-    settings.paymentAmount=630;
-
-if(!settings.commissionStudent)
-    settings.commissionStudent=150;
-
-if(!settings.commissionCounselor)
-    settings.commissionCounselor=70;
-
-if(!settings.commissionTrainer)
-    settings.commissionTrainer=40;
-
-if(!settings.commissionTeam)
-    settings.commissionTeam=40;
+let db=
+JSON.parse(
+  localStorage.getItem(KEY)||'null'
+)
+||
+{
+  products:[],
+  purchases:[],
+  sales:[],
+  expenses:[],
+  contacts:[],
+  capital:0
+};
 
 
-/* ADMIN */
-
-if(!mentors.some(x=>x.phone==="admin")){
-
-    mentors.push({
-
-        id:"ADMIN001",
-        name:"Main Admin",
-        phone:"admin",
-        password:"1234",
-        role:"Admin",
-        balance:0
-
-    });
-
-}
-
-save();
-
-
-/* =====================================================
-SAVE
-===================================================== */
+/* SAVE */
 
 function save(){
 
-    localStorage.setItem(
-        "students",
-        JSON.stringify(students)
+  localStorage.setItem(
+    KEY,
+    JSON.stringify(db)
+  );
+
+  updateAll();
+}
+
+
+/* MONEY */
+
+function money(n){
+
+  return "৳"+
+    Number(n||0)
+    .toLocaleString(
+      "bn-BD",
+      {
+        maximumFractionDigits:2
+      }
     );
 
-    localStorage.setItem(
-        "mentors",
-        JSON.stringify(mentors)
+}
+
+
+/* DATE */
+
+function today(){
+
+  return new Date()
+    .toISOString()
+    .slice(0,10);
+
+}
+
+
+/* PAGE */
+
+function showPage(id){
+
+  document
+    .querySelectorAll(".page")
+    .forEach(
+      x=>x.classList.remove("active")
     );
 
-    localStorage.setItem(
-        "settings",
-        JSON.stringify(settings)
+  document
+    .getElementById(id)
+    .classList.add("active");
+
+  window.scrollTo(0,0);
+
+  updateAll();
+
+}
+
+
+/* PRODUCT FORM */
+
+function openProductForm(id=""){
+
+  document
+    .getElementById("productForm")
+    .style.display="block";
+
+
+  document
+    .getElementById("editProductId")
+    .value=id;
+
+
+  if(id){
+
+    let p=
+      db.products.find(
+        x=>x.id==id
+      );
+
+
+    document
+      .getElementById("productFormTitle")
+      .textContent=
+      "প্রোডাক্ট এডিট";
+
+
+    pName.value=p.name;
+
+    pCategory.value=p.category;
+
+    pBuy.value=p.buy;
+
+    pSell.value=p.sell;
+
+    pStock.value=p.stock;
+
+    pExpiry.value=p.expiry||"";
+
+  }
+
+  else{
+
+    document
+      .getElementById("productFormTitle")
+      .textContent=
+      "নতুন প্রোডাক্ট এড করুন";
+
+
+    [
+      "pName",
+      "pCategory",
+      "pBuy",
+      "pSell",
+      "pStock",
+      "pExpiry"
+    ]
+    .forEach(
+      x=>
+      document.getElementById(x).value=""
     );
 
-}
-
-
-/* =====================================================
-MODAL
-===================================================== */
-
-function closeModal(id){
-
-    document.getElementById(id)
-    .classList.add("hidden");
+  }
 
 }
 
 
-/* =====================================================
-ROLE
-===================================================== */
+/* CLOSE PRODUCT FORM */
 
-function openRoleLogin(){
+function closeProductForm(){
 
-    document.getElementById("roleModal")
-    .classList.remove("hidden");
-
-}
-
-
-function openStudentLogin(){
-
-    closeModal("roleModal");
-
-    loginType="student";
-
-    document.getElementById("loginTitle")
-    .innerText="Student Login";
-
-    document.getElementById("mentorRoleField")
-    .classList.add("hidden");
-
-    document.getElementById("registerButton")
-    .classList.remove("hidden");
-
-    document.getElementById("loginModal")
-    .classList.remove("hidden");
+  document
+    .getElementById("productForm")
+    .style.display="none";
 
 }
 
 
-function openMentorLogin(){
+/* SAVE PRODUCT */
 
-    closeModal("roleModal");
+function saveProduct(){
 
-    loginType="mentor";
+  let name=
+    pName.value.trim();
 
-    document.getElementById("loginTitle")
-    .innerText="Mentor Login";
 
-    document.getElementById("mentorRoleField")
-    .classList.remove("hidden");
+  if(!name){
 
-    document.getElementById("registerButton")
-    .classList.add("hidden");
+    return alert(
+      "প্রোডাক্টের নাম দিন"
+    );
 
-    document.getElementById("loginModal")
-    .classList.remove("hidden");
+  }
+
+
+  let id=
+    document
+      .getElementById("editProductId")
+      .value;
+
+
+  let obj={
+
+    id:id||Date.now(),
+
+    name:name,
+
+    category:
+      pCategory.value,
+
+    buy:
+      +pBuy.value||0,
+
+    sell:
+      +pSell.value||0,
+
+    stock:
+      +pStock.value||0,
+
+    expiry:
+      pExpiry.value
+
+  };
+
+
+  if(id){
+
+    let i=
+      db.products.findIndex(
+        x=>x.id==id
+      );
+
+    db.products[i]=obj;
+
+  }
+
+  else{
+
+    db.products.push(obj);
+
+  }
+
+
+  closeProductForm();
+
+  save();
+
+
+  alert(
+    "প্রোডাক্ট সংরক্ষণ হয়েছে"
+  );
 
 }
 
 
-/* =====================================================
-ADMIN LOGIN
-===================================================== */
+/* PRODUCT LIST */
 
-function openAdminLogin(){
+function renderProducts(){
 
-    closeModal("roleModal");
+  let q=
+    (
+      productSearch?.value||""
+    ).toLowerCase();
 
-    loginType="admin";
 
-    document.getElementById("loginTitle")
-    .innerText="🔐 Admin Panel Login";
+  let arr=
+    db.products.filter(
+      p=>
+      p.name.toLowerCase().includes(q)
+      ||
+      p.category.toLowerCase().includes(q)
+    );
 
-    document.getElementById("mentorRoleField")
-    .classList.add("hidden");
 
-    document.getElementById("registerButton")
-    .classList.add("hidden");
+  productList.innerHTML=
 
-    document.getElementById("loginPhone").value="";
-    document.getElementById("loginPassword").value="";
+    arr.length
 
-    document.getElementById("loginModal")
-    .classList.remove("hidden");
+    ?
+
+    arr.map(
+      p=>
+
+      `<div class="card">
+
+        <div class="row">
+
+          <b>
+            ${esc(p.name)}
+          </b>
+
+          <span class="pill">
+            ${esc(
+              p.category||"অন্যান্য"
+            )}
+          </span>
+
+        </div>
+
+        <p>
+
+          ক্রয়:
+          ${money(p.buy)}
+
+          |
+
+          বিক্রি:
+          ${money(p.sell)}
+
+          |
+
+          স্টক:
+          <b>
+            ${p.stock}
+          </b>
+
+        </p>
+
+        <p class="muted">
+
+          মেয়াদ:
+          ${p.expiry||"নেই"}
+
+        </p>
+
+        <div class="actions">
+
+          <button
+            class="primary"
+            onclick="openProductForm(${p.id})">
+
+            এডিট
+
+          </button>
+
+          <button
+            class="danger"
+            onclick="deleteProduct(${p.id})">
+
+            মুছুন
+
+          </button>
+
+        </div>
+
+      </div>`
+
+    ).join("")
+
+    :
+
+    `<div class="empty">
+
+      কোনো প্রোডাক্ট নেই।
+
+      “＋ নতুন প্রোডাক্ট”
+      চাপুন।
+
+    </div>`;
 
 }
 
 
-/* =====================================================
-REGISTER
-===================================================== */
+/* DELETE PRODUCT */
 
-function openStudentRegister(){
+function deleteProduct(id){
 
-    closeModal("roleModal");
-    closeModal("loginModal");
+  if(
+    confirm(
+      "প্রোডাক্টটি মুছে ফেলবেন?"
+    )
+  ){
 
-    if(!settings.vacancy){
+    db.products=
+      db.products.filter(
+        p=>p.id!=id
+      );
 
+    save();
+
+  }
+
+}
+
+
+/* SELECT PRODUCTS */
+
+function fillSelects(){
+
+  let opts=
+
+    db.products.map(
+      p=>
+
+      `<option value="${p.id}">
+
+        ${esc(p.name)}
+        —
+        ${money(p.sell)}
+
+      </option>`
+
+    ).join("");
+
+
+  buyProduct.innerHTML=
+    opts||
+    '<option>প্রোডাক্ট নেই</option>';
+
+
+  saleProduct.innerHTML=
+    opts||
+    '<option>প্রোডাক্ট নেই</option>';
+
+
+  let p=
+    db.products.find(
+      x=>x.id==saleProduct.value
+    );
+
+
+  if(p)
+    salePrice.value=p.sell;
+
+
+  let b=
+    db.products.find(
+      x=>x.id==buyProduct.value
+    );
+
+
+  if(b)
+    buyPrice.value=b.buy;
+
+}
+
+
+/* SALE PRODUCT CHANGE */
+
+saleProduct.onchange=()=>{
+
+  let p=
+    db.products.find(
+      x=>x.id==saleProduct.value
+    );
+
+  if(p)
+    salePrice.value=p.sell;
+
+};
+
+
+/* BUY PRODUCT CHANGE */
+
+buyProduct.onchange=()=>{
+
+  let p=
+    db.products.find(
+      x=>x.id==buyProduct.value
+    );
+
+  if(p)
+    buyPrice.value=p.buy;
+
+};
+
+
+/* PURCHASE */
+
+function addPurchase(){
+
+  let p=
+    db.products.find(
+      x=>x.id==buyProduct.value
+    );
+
+
+  let q=
+    +buyQty.value||0;
+
+
+  let price=
+    +buyPrice.value||0;
+
+
+  if(!p || q<1){
+
+    return alert(
+      "প্রোডাক্ট ও পরিমাণ ঠিক করুন"
+    );
+
+  }
+
+
+  p.stock+=q;
+
+
+  db.purchases.unshift({
+
+    id:Date.now(),
+
+    date:today(),
+
+    product:p.name,
+
+    productId:p.id,
+
+    qty:q,
+
+    price:price,
+
+    total:q*price,
+
+    supplier:supplier.value
+
+  });
+
+
+  save();
+
+
+  alert(
+    "কেনা সংরক্ষণ হয়েছে"
+  );
+
+}
+
+
+/* SALE */
+
+function addSale(){
+
+  let p=
+    db.products.find(
+      x=>x.id==saleProduct.value
+    );
+
+
+  let q=
+    +saleQty.value||0;
+
+
+  let price=
+    +salePrice.value||0;
+
+
+  if(!p || q<1){
+
+    return alert(
+      "প্রোডাক্ট ও পরিমাণ ঠিক করুন"
+    );
+
+  }
+
+
+  if(p.stock<q){
+
+    return alert(
+      "স্টকে পর্যাপ্ত পণ্য নেই"
+    );
+
+  }
+
+
+  p.stock-=q;
+
+
+  let total=
+    q*price;
+
+
+  db.sales.unshift({
+
+    id:Date.now(),
+
+    date:today(),
+
+    product:p.name,
+
+    productId:p.id,
+
+    qty:q,
+
+    price:price,
+
+    total:total,
+
+    customer:customer.value,
+
+    phone:customerPhone.value,
+
+    payment:salePayment.value,
+
+    due:
+      salePayment.value==="বাকি"
+      ?
+      total
+      :
+      0
+
+  });
+
+
+  save();
+
+
+  alert(
+    "বিক্রি সংরক্ষণ হয়েছে"
+  );
+
+}
+
+
+/* EXPENSE */
+
+function addExpense(){
+
+  let name=
+    expenseName.value.trim();
+
+
+  let amount=
+    +expenseAmount.value||0;
+
+
+  if(
+    !name ||
+    amount<=0
+  ){
+
+    return alert(
+      "খরচের তথ্য দিন"
+    );
+
+  }
+
+
+  db.expenses.unshift({
+
+    id:Date.now(),
+
+    date:today(),
+
+    name:name,
+
+    amount:amount
+
+  });
+
+
+  save();
+
+
+  expenseName.value="";
+
+  expenseAmount.value="";
+
+}
+
+
+/* CONTACT */
+
+function addContact(){
+
+  let n=
+    contactName.value.trim();
+
+
+  let ph=
+    contactPhone.value.trim();
+
+
+  if(!n)
+    return;
+
+
+  db.contacts.push({
+
+    id:Date.now(),
+
+    name:n,
+
+    phone:ph
+
+  });
+
+
+  save();
+
+
+  contactName.value="";
+
+  contactPhone.value="";
+
+}
+
+
+/* CAPITAL */
+
+function setCapital(){
+
+  db.capital=
+    +capitalInput.value||0;
+
+
+  save();
+
+
+  alert(
+    "পুঁজি সংরক্ষণ হয়েছে"
+  );
+
+}
+
+
+/* LISTS */
+
+function renderLists(){
+
+  purchaseList.innerHTML=
+
+    db.purchases.length
+
+    ?
+
+    db.purchases.map(
+      x=>
+
+      `<div class="card">
+
+        ${x.date}
+        —
+        <b>
+          ${esc(x.product)}
+        </b>
+
+        ×
+        ${x.qty}
+
+        <br>
+
+        মোট:
+        ${money(x.total)}
+
+        <span class="muted">
+          ${esc(x.supplier||"")}
+        </span>
+
+      </div>`
+
+    ).join("")
+
+    :
+
+    '<div class="empty">কেনার তথ্য নেই</div>';
+
+
+  saleList.innerHTML=
+
+    db.sales.length
+
+    ?
+
+    db.sales.map(
+      x=>
+
+      `<div class="card">
+
+        <div class="row">
+
+          <b>
+            ${esc(x.product)}
+            ×
+            ${x.qty}
+          </b>
+
+          <span>
+            ${money(x.total)}
+          </span>
+
+        </div>
+
+        <p>
+
+          ${x.date}
+
+          |
+
+          ${esc(
+            x.customer||
+            "সাধারণ কাস্টমার"
+          )}
+
+          |
+
+          ${esc(x.payment)}
+
+        </p>
+
+      </div>`
+
+    ).join("")
+
+    :
+
+    '<div class="empty">বিক্রির তথ্য নেই</div>';
+
+
+  expenseList.innerHTML=
+
+    db.expenses.length
+
+    ?
+
+    db.expenses.map(
+      x=>
+
+      `<div class="card">
+
+        ${x.date}
+        —
+        ${esc(x.name)}
+
+        <b class="money">
+
+          ${money(x.amount)}
+
+        </b>
+
+      </div>`
+
+    ).join("")
+
+    :
+
+    '<div class="empty">খরচ নেই</div>';
+
+
+  let dues=
+    db.sales.filter(
+      x=>x.due>0
+    );
+
+
+  dueList.innerHTML=
+
+    dues.length
+
+    ?
+
+    dues.map(
+      x=>
+
+      `<div class="card">
+
+        <div class="row">
+
+          <b>
+            ${esc(
+              x.customer||
+              "নাম নেই"
+            )}
+          </b>
+
+          <b
+            style="color:#d9534f">
+
+            ${money(x.due)}
+
+          </b>
+
+        </div>
+
+        <p>
+
+          ${esc(x.phone||"")}
+
+          |
+
+          ${esc(x.product)}
+
+          |
+
+          ${x.date}
+
+        </p>
+
+        <button
+          class="success"
+          onclick="payDue(${x.id})">
+
+          বাকি পরিশোধ
+
+        </button>
+
+      </div>`
+
+    ).join("")
+
+    :
+
+    '<div class="empty">কোনো বাকি নেই</div>';
+
+
+  stockList.innerHTML=
+
+    db.products.length
+
+    ?
+
+    db.products.map(
+      p=>
+
+      `<div class="card">
+
+        <div class="row">
+
+          <b>
+            ${esc(p.name)}
+          </b>
+
+          <span class="pill">
+
+            ${p.stock}
+            পিস
+
+          </span>
+
+        </div>
+
+        <p>
+
+          বিক্রি মূল্য:
+          ${money(p.sell)}
+
+        </p>
+
+      </div>`
+
+    ).join("")
+
+    :
+
+    '<div class="empty">স্টক নেই</div>';
+
+
+  let ex=
+    db.products.filter(
+      p=>
+      p.expiry &&
+      p.expiry<=today()
+    );
+
+
+  expiryList.innerHTML=
+
+    ex.length
+
+    ?
+
+    ex.map(
+      p=>
+
+      `<div class="card">
+
+        <b>
+          ${esc(p.name)}
+        </b>
+
+        —
+
+        মেয়াদ:
+        ${p.expiry}
+
+        —
+
+        স্টক:
+        ${p.stock}
+
+      </div>`
+
+    ).join("")
+
+    :
+
+    '<div class="empty">মেয়াদোত্তীর্ণ পণ্য নেই</div>';
+
+
+  contactList.innerHTML=
+
+    db.contacts.map(
+      x=>
+
+      `<div class="card">
+
+        ${esc(x.name)}
+
+        —
+
+        ${esc(x.phone)}
+
+      </div>`
+
+    ).join("")
+
+    ||
+
+    '<div class="empty">কোনো যোগাযোগ নেই</div>';
+
+}
+
+
+/* DUE PAYMENT */
+
+function payDue(id){
+
+  let x=
+    db.sales.find(
+      s=>s.id==id
+    );
+
+
+  if(x){
+
+    x.due=0;
+
+    x.payment="পরিশোধ";
+
+    save();
+
+
+    alert(
+      "বাকি পরিশোধ হিসেবে চিহ্নিত হয়েছে"
+    );
+
+  }
+
+}
+
+
+/* UPDATE ALL */
+
+function updateAll(){
+
+  let todaySalesAmount=
+
+    db.sales
+
+    .filter(
+      x=>x.date===today()
+    )
+
+    .reduce(
+      (a,x)=>a+x.total,
+      0
+    );
+
+
+  let todayExpenseAmount=
+
+    db.expenses
+
+    .filter(
+      x=>x.date===today()
+    )
+
+    .reduce(
+      (a,x)=>a+x.amount,
+      0
+    );
+
+
+  let due=
+
+    db.sales.reduce(
+      (a,x)=>a+(x.due||0),
+      0
+    );
+
+
+  let stock=
+
+    db.products.reduce(
+      (a,x)=>a+x.stock,
+      0
+    );
+
+
+  let sales=
+
+    db.sales.reduce(
+      (a,x)=>a+x.total,
+      0
+    );
+
+
+  let purchases=
+
+    db.purchases.reduce(
+      (a,x)=>a+x.total,
+      0
+    );
+
+
+  let expenses=
+
+    db.expenses.reduce(
+      (a,x)=>a+x.amount,
+      0
+    );
+
+
+  todaySales.textContent=
+    money(todaySalesAmount);
+
+
+  todayExpense.textContent=
+    money(todayExpenseAmount);
+
+
+  dueTotal.textContent=
+    money(due);
+
+
+  stockCount.textContent=
+    stock.toLocaleString("bn-BD");
+
+
+  capitalTotal.textContent=
+    money(db.capital);
+
+
+  balance.textContent=
+    money(sales-expenses);
+
+
+  cashSales.textContent=
+    money(sales);
+
+
+  cashExpense.textContent=
+    money(expenses);
+
+
+  cashBalance.textContent=
+    money(sales-expenses);
+
+
+  reportBox.innerHTML=
+
+    `<div class="card">
+
+      <h3>
+        সারাংশ
+      </h3>
+
+      <p>
+        মোট বিক্রি:
+        <b>
+          ${money(sales)}
+        </b>
+      </p>
+
+      <p>
+        মোট কেনা:
+        <b>
+          ${money(purchases)}
+        </b>
+      </p>
+
+      <p>
+        মোট খরচ:
+        <b>
+          ${money(expenses)}
+        </b>
+      </p>
+
+      <p>
+        মোট বাকি:
+        <b style="color:#d9534f">
+          ${money(due)}
+        </b>
+      </p>
+
+      <p>
+        বর্তমান স্টক:
+        <b>
+          ${stock}
+        </b>
+        পিস
+      </p>
+
+      <p>
+        আনুমানিক লাভ:
+        <b class="money">
+          ${money(sales-purchases)}
+        </b>
+      </p>
+
+    </div>`;
+
+
+  renderProducts();
+
+  fillSelects();
+
+  renderLists();
+
+}
+
+
+/* BACKUP */
+
+function backupData(){
+
+  let blob=
+    new Blob(
+      [
+        JSON.stringify(
+          db,
+          null,
+          2
+        )
+      ],
+      {
+        type:"application/json"
+      }
+    );
+
+
+  let a=
+    document.createElement("a");
+
+
+  a.href=
+    URL.createObjectURL(blob);
+
+
+  a.download=
+    "sabia-telecom-backup-"+
+    today()+
+    ".json";
+
+
+  a.click();
+
+
+  backupStatus.textContent=
+    "ব্যাকআপ নেওয়া হয়েছে";
+
+}
+
+
+/* SETTINGS */
+
+function saveSettings(){
+
+  localStorage.setItem(
+    "sabia_shop_name",
+    shopName.value
+  );
+
+
+  document
+    .querySelector(".brand")
+    .textContent=
+    shopName.value||
+    "সাবিয়া টেলিকম";
+
+
+  alert(
+    "সেটিংস সংরক্ষণ হয়েছে"
+  );
+
+}
+
+
+/* RESET */
+
+function restoreDemo(){
+
+  if(
+    confirm(
+      "সব ডাটা মুছে ডেমো অবস্থায় ফিরবেন?"
+    )
+  ){
+
+    localStorage.removeItem(KEY);
+
+    location.reload();
+
+  }
+
+}
+
+
+/* MARKETING SHARE */
+
+function shareMarketing(){
+
+  let t=
+    marketingText.value.trim();
+
+
+  if(!t)
+    return;
+
+
+  if(
+    navigator.share
+  ){
+
+    navigator.share({
+      text:t
+    });
+
+  }
+
+  else if(
+    navigator.clipboard
+  ){
+
+    navigator.clipboard
+      .writeText(t)
+      .then(
+        ()=>
         alert(
-            "বর্তমানে Student Registration বন্ধ আছে।"
-        );
+          "মেসেজ কপি হয়েছে"
+        )
+      );
 
-        return;
-
-    }
-
-    loadReferral();
-
-    document.getElementById("registerModal")
-    .classList.remove("hidden");
+  }
 
 }
 
 
-function loadReferral(){
+/* SECURITY ESCAPE */
 
-    let select =
-    document.getElementById("regReferrer");
+function esc(s){
 
-    select.innerHTML=
-    '<option value="">Select Referral ID</option>';
-
-    mentors
-    .filter(x=>x.role!=="Admin")
-    .forEach(m=>{
-
-        let o=
-        document.createElement("option");
-
-        o.value=m.id;
-
-        o.textContent=
-        m.id+" - "+m.name+
-        " ("+m.role+")";
-
-        select.appendChild(o);
-
-    });
+  return String(
+    s??""
+  ).replace(
+    /[&<>"']/g,
+    m=>
+    ({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#039;"
+    }[m])
+  );
 
 }
 
 
-/* =====================================================
-STUDENT REGISTER
-===================================================== */
+/* INITIAL */
 
-function registerStudent(){
+(function init(){
 
-    if(!settings.vacancy){
-
-        alert("Registration বন্ধ আছে.");
-        return;
-
-    }
+  let saved=
+    localStorage.getItem(
+      "sabia_shop_name"
+    );
 
 
-    let name=
-    document.getElementById("regName")
-    .value.trim();
+  if(saved){
 
-    let whatsapp=
-    document.getElementById("regWhatsapp")
-    .value.trim();
+    shopName.value=saved;
 
-    let email=
-    document.getElementById("regEmail")
-    .value.trim();
+    document
+      .querySelector(".brand")
+      .textContent=saved;
 
-    let password=
-    document.getElementById("regPassword")
-    .value;
-
-    let referrer=
-    document.getElementById("regReferrer")
-    .value;
+  }
 
 
-    if(!name || !whatsapp || !password){
+  if(
+    !db.products.length
+  ){
 
-        alert(
-            "নাম, WhatsApp এবং Password অবশ্যই দিতে হবে।"
-        );
+    db.products=[
 
-        return;
+      {
+        id:1,
 
-    }
+        name:"ডেমো পণ্য",
 
+        category:"অন্যান্য",
 
-    if(students.some(x=>x.whatsapp===whatsapp)){
+        buy:50,
 
-        alert(
-            "এই WhatsApp নম্বরে Student ID ইতিমধ্যে আছে।"
-        );
+        sell:70,
 
-        return;
+        stock:10,
 
-    }
+        expiry:""
 
+      }
 
-    let id=
-    "STU"+
-    new Date().getFullYear()+
-    String(students.length+1)
-    .padStart(5,"0");
-
-
-    students.push({
-
-        id:id,
-
-        name:name,
-
-        whatsapp:whatsapp,
-
-        email:email,
-
-        password:password,
-
-        referrer:referrer,
-
-        counselor:"",
-
-        trainer:"",
-
-        teamLeader:"",
-
-        status:"Inactive",
-
-        paymentStatus:"Unpaid",
-
-        transactionId:"",
-
-        balance:0,
-
-        created:new Date().toLocaleString()
-
-    });
-
+    ];
 
     save();
 
-    closeModal("registerModal");
+  }
 
-    updateHome();
+  else{
 
-    alert(
-        "Registration Successful!\n\n"+
-        "Student ID: "+id+
-        "\nStatus: Inactive"+
-        "\nActivation Fee: ৳"+
-        settings.paymentAmount
-    );
+    updateAll();
 
-}
+  }
 
-
-/* =====================================================
-LOGIN
-===================================================== */
-
-function doLogin(){
-
-    let phone=
-    document.getElementById("loginPhone")
-    .value.trim();
-
-    let password=
-    document.getElementById("loginPassword")
-    .value;
-
-
-    /* STUDENT */
-
-    if(loginType==="student"){
-
-        let s=
-        students.find(x=>
-            x.whatsapp===phone &&
-            x.password===password
-        );
-
-        if(!s){
-
-            alert("Student Login তথ্য ভুল।");
-            return;
-
-        }
-
-        currentUser=s;
-
-        closeModal("loginModal");
-
-        showStudent(s);
-
-        return;
-
-    }
-
-
-    /* MENTOR */
-
-    if(loginType==="mentor"){
-
-        let role=
-        document.getElementById("mentorRole")
-        .value;
-
-        let m=
-        mentors.find(x=>
-            x.phone===phone &&
-            x.password===password &&
-            x.role===role
-        );
-
-        if(!m){
-
-            alert("Mentor Login তথ্য ভুল।");
-            return;
-
-        }
-
-        currentUser=m;
-
-        closeModal("loginModal");
-
-        showMentor(m);
-
-        return;
-
-    }
-
-
-    /* ADMIN */
-
-    if(loginType==="admin"){
-
-        let admin=
-        mentors.find(x=>
-            x.phone===phone &&
-            x.password===password &&
-            x.role==="Admin"
-        );
-
-
-        if(!admin){
-
-            alert(
-                "Admin Login তথ্য ভুল।\n\n"+
-                "Demo Admin:\n"+
-                "ID: admin\n"+
-                "Password: 1234"
-            );
-
-            return;
-
-        }
-
-
-        currentUser=admin;
-
-        closeModal("loginModal");
-
-        showAdmin();
-
-    }
-
-}
-
-
-/* =====================================================
-STUDENT DASHBOARD
-===================================================== */
-
-function showStudent(s){
-
-    hideDash();
-
-    document.getElementById("studentDashboard")
-    .classList.remove("hidden");
-
-    document.getElementById("studentWelcome")
-    .innerText=
-    "Welcome, "+s.name;
-
-    document.getElementById("studentIdDisplay")
-    .innerText=
-    "Student ID: "+s.id;
-
-    document.getElementById("studentID")
-    .innerText=s.id;
-
-
-    if(s.status==="Active"){
-
-        document.getElementById("studentStatus")
-        .innerHTML=
-        '<span class="badge active">ACTIVE</span>';
-
-    }else{
-
-        document.getElementById("studentStatus")
-        .innerHTML=
-        '<span class="badge inactive">INACTIVE</span>';
-
-    }
-
-
-    document.getElementById("studentPayNumber")
-    .innerText=settings.paymentNumber;
-
-    document.getElementById("studentPayAmount")
-    .innerText="৳"+settings.paymentAmount;
-
-}
-
-
-/* =====================================================
-PAYMENT
-===================================================== */
-
-function openPayment(){
-
-    document.getElementById("payNumber")
-    .innerText=settings.paymentNumber;
-
-    document.getElementById("payAmount")
-    .innerText="৳"+settings.paymentAmount;
-
-    document.getElementById("paymentModal")
-    .classList.remove("hidden");
-
-}
-
-
-function submitPayment(){
-
-    let trx=
-    document.getElementById("transactionId")
-    .value.trim();
-
-    if(!trx){
-
-        alert("Transaction ID দিন।");
-        return;
-
-    }
-
-
-    let s=
-    students.find(x=>x.id===currentUser.id);
-
-    if(!s) return;
-
-    s.transactionId=trx;
-    s.paymentStatus="Pending";
-
-    save();
-
-    closeModal("paymentModal");
-
-    alert(
-        "Payment Submit হয়েছে।\n"+
-        "Admin verification-এর পরে আপনার ID Active হবে।"
-    );
-
-}
-
-
-/* =====================================================
-MENTOR
-===================================================== */
-
-function showMentor(m){
-
-    hideDash();
-
-    document.getElementById("mentorDashboard")
-    .classList.remove("hidden");
-
-    document.getElementById("mentorName")
-    .innerText=
-    "Welcome, "+m.name;
-
-    document.getElementById("mentorRole")
-    .innerText=
-    "Role: "+m.role+
-    " | ID: "+m.id;
-
-    document.getElementById("mentorBalance")
-    .innerText=
-    "৳"+(m.balance||0);
-
-
-    let body=
-    document.getElementById("mentorStudents");
-
-    body.innerHTML="";
-
-
-    students.forEach(s=>{
-
-        if(
-            s.referrer===m.id ||
-            s.counselor===m.id ||
-            s.trainer===m.id ||
-            s.teamLeader===m.id
-        ){
-
-            let tr=
-            document.createElement("tr");
-
-            tr.innerHTML=`
-
-            <td>${s.id}</td>
-
-            <td>${s.name}</td>
-
-            <td>${s.whatsapp}</td>
-
-            <td>
-                <span class="badge ${
-                    s.status==="Active"
-                    ?"active"
-                    :"inactive"
-                }">
-                ${s.status}
-                </span>
-            </td>
-
-            <td>
-                <button
-                class="action blue"
-                onclick="sendWhatsApp(
-                '${s.whatsapp}',
-                '${s.name}',
-                '${s.id}')">
-                WhatsApp
-                </button>
-            </td>
-
-            `;
-
-            body.appendChild(tr);
-
-        }
-
-    });
-
-}
-
-
-/* =====================================================
-WHATSAPP
-===================================================== */
-
-function sendWhatsApp(number,name,id){
-
-    let msg=
-    "আসসালামু আলাইকুম "+name+
-    ", আপনার Student ID: "+id+
-    "। আপনাকে আমাদের টিম থেকে যোগাযোগ করা হচ্ছে।";
-
-    let url=
-    "https://wa.me/88"+
-    number.replace(/^0/,"")+
-    "?text="+
-    encodeURIComponent(msg);
-
-    window.open(url,"_blank");
-
-}
-
-
-/* =====================================================
-ADMIN
-===================================================== */
-
-function showAdmin(){
-
-    hideDash();
-
-    document.getElementById("adminDashboard")
-    .classList.remove("hidden");
-
-    refreshAdmin();
-
-}
-
-
-function refreshAdmin(){
-
-    document.getElementById("adminStudents")
-    .innerText=students.length;
-
-    document.getElementById("adminActive")
-    .innerText=
-    students.filter(x=>x.status==="Active").length;
-
-    document.getElementById("adminInactive")
-    .innerText=
-    students.filter(x=>x.status!=="Active").length;
-
-    document.getElementById("adminMentors")
-    .innerText=
-    mentors.filter(x=>x.role!=="Admin").length;
-
-
-    document.getElementById("vacancyText")
-    .innerText=
-    settings.vacancy
-    ?"Registration Open"
-    :"Registration Closed";
-
-
-    document.getElementById("vacancyToggle")
-    .classList.toggle(
-        "on",
-        settings.vacancy
-    );
-
-
-    document.getElementById("paymentNumber")
-    .value=settings.paymentNumber;
-
-    document.getElementById("paymentAmount")
-    .value=settings.paymentAmount;
-
-    document.getElementById("commissionStudent")
-    .value=settings.commissionStudent;
-
-    document.getElementById("commissionCounselor")
-    .value=settings.commissionCounselor;
-
-    document.getElementById("commissionTrainer")
-    .value=settings.commissionTrainer;
-
-    document.getElementById("commissionTeam")
-    .value=settings.commissionTeam;
-
-
-    renderStudents();
-    renderMentors();
-
-}
-
-
-/* =====================================================
-VACANCY
-===================================================== */
-
-function toggleVacancy(){
-
-    settings.vacancy=
-    !settings.vacancy;
-
-    save();
-
-    refreshAdmin();
-
-}
-
-
-/* =====================================================
-PAYMENT SETTINGS
-===================================================== */
-
-function savePaymentSettings(){
-
-    settings.paymentNumber=
-    document.getElementById("paymentNumber")
-    .value.trim();
-
-    settings.paymentAmount=
-    Number(
-        document.getElementById("paymentAmount")
-        .value
-    );
-
-    save();
-
-    alert("Payment Settings Saved.");
-
-}
-
-
-/* =====================================================
-COMMISSION
-===================================================== */
-
-function saveCommission(){
-
-    settings.commissionStudent=
-    Number(
-        document.getElementById("commissionStudent")
-        .value
-    );
-
-    settings.commissionCounselor=
-    Number(
-        document.getElementById("commissionCounselor")
-        .value
-    );
-
-    settings.commissionTrainer=
-    Number(
-        document.getElementById("commissionTrainer")
-        .value
-    );
-
-    settings.commissionTeam=
-    Number(
-        document.getElementById("commissionTeam")
-        .value
-    );
-
-    save();
-
-    alert("Commission Settings Saved.");
-
-}
-
-
-/* =====================================================
-CREATE MENTOR
-===================================================== */
-
-function createMentor(){
-
-    let name=
-    document.getElementById("newMentorName")
-    .value.trim();
-
-    let phone=
-    document.getElementById("newMentorPhone")
-    .value.trim();
-
-    let password=
-    document.getElementById("newMentorPassword")
-    .value;
-
-    let role=
-    document.getElementById("newMentorRole")
-    .value;
-
-
-    if(!name || !phone || !password){
-
-        alert("সব তথ্য পূরণ করুন।");
-        return;
-
-    }
-
-
-    if(mentors.some(x=>x.phone===phone)){
-
-        alert(
-            "এই Phone দিয়ে ID ইতিমধ্যে আছে।"
-        );
-
-        return;
-
-    }
-
-
-    let id=
-    role.substring(0,3).toUpperCase()+
-    String(mentors.length+1)
-    .padStart(4,"0");
-
-
-    mentors.push({
-
-        id:id,
-        name:name,
-        phone:phone,
-        password:password,
-        role:role,
-        balance:0
-
-    });
-
-
-    save();
-
-    document.getElementById("newMentorName").value="";
-    document.getElementById("newMentorPhone").value="";
-    document.getElementById("newMentorPassword").value="";
-
-
-    alert(
-        "Mentor ID তৈরি হয়েছে:\n\n"+
-        id
-    );
-
-
-    refreshAdmin();
-
-}
-
-
-/* =====================================================
-STUDENT TABLE
-===================================================== */
-
-function renderStudents(){
-
-    let body=
-    document.getElementById("adminStudentTable");
-
-    body.innerHTML="";
-
-
-    students.forEach(s=>{
-
-        let tr=
-        document.createElement("tr");
-
-
-        let counselorOptions=
-        makeOptions("Counselor",s.counselor);
-
-        let trainerOptions=
-        makeOptions("Trainer",s.trainer);
-
-        let teamOptions=
-        makeOptions("Team Leader",s.teamLeader);
-
-
-        tr.innerHTML=`
-
-        <td>
-            <strong>${s.id}</strong>
-        </td>
-
-        <td>${s.name}</td>
-
-        <td>${s.whatsapp}</td>
-
-        <td>${s.referrer || "-"}</td>
-
-        <td>
-            <select
-            onchange="mapStudent(
-            '${s.id}',
-            'counselor',
-            this.value)">
-            ${counselorOptions}
-            </select>
-        </td>
-
-        <td>
-            <select
-            onchange="mapStudent(
-            '${s.id}',
-            'trainer',
-            this.value)">
-            ${trainerOptions}
-            </select>
-        </td>
-
-        <td>
-            <select
-            onchange="mapStudent(
-            '${s.id}',
-            'teamLeader',
-            this.value)">
-            ${teamOptions}
-            </select>
-        </td>
-
-        <td>
-
-            <span class="badge ${
-                s.status==="Active"
-                ?"active"
-                :"inactive"
-            }">
-            ${s.status}
-            </span>
-
-            ${
-                s.paymentStatus==="Pending"
-                ?
-                '<span class="badge pending">Payment Pending</span>'
-                :
-                ''
-            }
-
-        </td>
-
-
-        <td>
-
-            ${
-                s.status!=="Active"
-                ?
-
-                `<button
-                class="action green"
-                onclick="activateStudent('${s.id}')">
-                Activate
-                </button>`
-
-                :
-
-                `<button
-                class="action red"
-                onclick="deactivateStudent('${s.id}')">
-                Deactivate
-                </button>`
-            }
-
-
-            <button
-            class="action blue"
-            onclick="sendWhatsApp(
-            '${s.whatsapp}',
-            '${s.name}',
-            '${s.id}')">
-            WhatsApp
-            </button>
-
-        </td>
-
-        `;
-
-
-        body.appendChild(tr);
-
-    });
-
-}
-
-
-/* =====================================================
-OPTIONS
-===================================================== */
-
-function makeOptions(role,current){
-
-    let html=
-    `<option value="">Select ${role}</option>`;
-
-
-    mentors
-    .filter(m=>m.role===role)
-    .forEach(m=>{
-
-        html+=
-        `<option value="${m.id}"
-        ${m.id===current?"selected":""}>
-        ${m.id} - ${m.name}
-        </option>`;
-
-    });
-
-
-    return html;
-
-}
-
-
-/* =====================================================
-MAPPING
-===================================================== */
-
-function mapStudent(studentId,type,value){
-
-    let s=
-    students.find(x=>x.id===studentId);
-
-    if(!s) return;
-
-    s[type]=value;
-
-    save();
-
-    alert(
-        "Student Mapping Updated."
-    );
-
-}
-
-
-/* =====================================================
-ACTIVATE
-===================================================== */
-
-function activateStudent(id){
-
-    let s=
-    students.find(x=>x.id===id);
-
-    if(!s) return;
-
-
-    if(s.status==="Active"){
-
-        alert("Already Active.");
-        return;
-
-    }
-
-
-    if(s.paymentStatus!=="Pending" &&
-       s.paymentStatus!=="Paid"){
-
-        let ok=
-        confirm(
-            "Payment Pending.\n"+
-            "তবুও Active করবেন?"
-        );
-
-        if(!ok) return;
-
-    }
-
-
-    s.status="Active";
-    s.paymentStatus="Paid";
-
-
-    /* REFERRER */
-
-    if(s.referrer){
-
-        let m=
-        mentors.find(x=>x.id===s.referrer);
-
-        if(m){
-
-            m.balance=
-            (m.balance||0)+
-            Number(settings.commissionStudent);
-
-        }
-
-    }
-
-
-    /* COUNSELOR */
-
-    if(s.counselor){
-
-        let m=
-        mentors.find(x=>x.id===s.counselor);
-
-        if(m){
-
-            m.balance=
-            (m.balance||0)+
-            Number(settings.commissionCounselor);
-
-        }
-
-    }
-
-
-    /* TRAINER */
-
-    if(s.trainer){
-
-        let m=
-        mentors.find(x=>x.id===s.trainer);
-
-        if(m){
-
-            m.balance=
-            (m.balance||0)+
-            Number(settings.commissionTrainer);
-
-        }
-
-    }
-
-
-    /* TEAM LEADER */
-
-    if(s.teamLeader){
-
-        let m=
-        mentors.find(x=>x.id===s.teamLeader);
-
-        if(m){
-
-            m.balance=
-            (m.balance||0)+
-            Number(settings.commissionTeam);
-
-        }
-
-    }
-
-
-    save();
-
-    alert(
-        "Student "+id+
-        " Active হয়েছে এবং Commission যোগ হয়েছে।"
-    );
-
-    refreshAdmin();
-
-}
-
-
-/* =====================================================
-DEACTIVATE
-===================================================== */
-
-function deactivateStudent(id){
-
-    let s=
-    students.find(x=>x.id===id);
-
-    if(!s) return;
-
-    s.status="Inactive";
-
-    save();
-
-    refreshAdmin();
-
-}
-
-
-/* =====================================================
-MENTOR TABLE
-===================================================== */
-
-function renderMentors(){
-
-    let body=
-    document.getElementById("adminMentorTable");
-
-    body.innerHTML="";
-
-
-    mentors
-    .filter(m=>m.role!=="Admin")
-    .forEach(m=>{
-
-        let tr=
-        document.createElement("tr");
-
-
-        tr.innerHTML=`
-
-        <td>
-            <strong>${m.id}</strong>
-        </td>
-
-        <td>${m.name}</td>
-
-        <td>${m.phone}</td>
-
-        <td>${m.role}</td>
-
-        <td>
-            ৳${m.balance||0}
-        </td>
-
-        `;
-
-
-        body.appendChild(tr);
-
-    });
-
-}
-
-
-/* =====================================================
-HIDE DASHBOARD
-===================================================== */
-
-function hideDash(){
-
-    document.getElementById("home")
-    .classList.add("hidden");
-
-    document.getElementById("studentDashboard")
-    .classList.add("hidden");
-
-    document.getElementById("mentorDashboard")
-    .classList.add("hidden");
-
-    document.getElementById("adminDashboard")
-    .classList.add("hidden");
-
-}
-
-
-/* =====================================================
-HOME
-===================================================== */
-
-function showHome(){
-
-    hideDash();
-
-    document.getElementById("home")
-    .classList.remove("hidden");
-
-}
-
-
-/* =====================================================
-LOGOUT
-===================================================== */
-
-function logout(){
-
-    currentUser=null;
-
-    showHome();
-
-}
-
-
-/* =====================================================
-HOME COUNTS
-===================================================== */
-
-function updateHome(){
-
-    document.getElementById("homeStudents")
-    .innerText=students.length;
-
-    document.getElementById("homeMentors")
-    .innerText=
-    mentors.filter(x=>x.role!=="Admin").length;
-
-}
-
-updateHome();
+})();
 
 </script>
 
